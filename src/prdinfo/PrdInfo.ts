@@ -1,7 +1,7 @@
 import PrdOption from "./PrdOption";
 
 export default class PrdInfo {
-  name?: string;
+  title?: string;
 
   url?: string;
 
