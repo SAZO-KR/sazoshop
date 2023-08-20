@@ -1,4 +1,5 @@
-import PrdOption from "./PrdOption";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import PrdOption from './PrdOption';
 
 export default class PrdInfo {
   title?: string;
@@ -32,17 +33,17 @@ export default class PrdInfo {
   totalPrice(): number {
     // 가격 맵이 있으면 맵에서 찾아서 반환
     if (this.optionPriceMap) {
-      const key = "";
-      this.options.forEach((opt) => {
-        key.concat(opt.selectedAttribute()?.id ?? "");
+      const key = '';
+      this.options.forEach(opt => {
+        key.concat(opt.selectedAttribute()?.id ?? '');
       });
       if (this.optionPriceMap.get(key) === undefined)
-        throw new Error("There is no price for this option.");
+        throw new Error('There is no price for this option.');
       return this.optionPriceMap.get(key) ?? 0;
     }
     // 가격 맵이 없으면 옵션 가격을 다 더해서 반환
     let totalPrice = this.salePrice ?? 0;
-    this.options.forEach((option) => {
+    this.options.forEach(option => {
       totalPrice += option.selectedAttribute()?.price ?? 0;
     });
     return totalPrice;
@@ -56,7 +57,7 @@ export default class PrdInfo {
     const mapToArray = this.optionPriceMap?.entries() ?? [];
     return {
       ...this,
-      options: this.options.map((option) => option.toJSON()),
+      options: this.options.map(option => option.toJSON()),
       optionPriceMap: Array.from(mapToArray),
     };
   }

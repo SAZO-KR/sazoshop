@@ -1,6 +1,6 @@
-import PrdAttr from "./PrdAttr";
-import PrdAttrBuilder from "./PrdAttrBuilder";
-import PrdOption from "./PrdOption";
+import PrdAttr from './PrdAttr';
+import PrdAttrBuilder from './PrdAttrBuilder';
+import PrdOption from './PrdOption';
 
 export default class PrdOptionBuilder {
   option: PrdOption;
@@ -17,7 +17,7 @@ export default class PrdOptionBuilder {
 
   attributes(attrbuilder: PrdAttrBuilder[]) {
     const attributes: PrdAttr[] = [];
-    attrbuilder.forEach((builder) => {
+    attrbuilder.forEach(builder => {
       attributes.push(builder.build());
     });
     this.option.attributes = attributes;
@@ -26,7 +26,7 @@ export default class PrdOptionBuilder {
 
   addAttributes(attrbuilder: PrdAttrBuilder[]) {
     const attributes: PrdAttr[] = [];
-    attrbuilder.forEach((builder) => {
+    attrbuilder.forEach(builder => {
       attributes.push(builder.build());
     });
     this.option.attributes = this.option.attributes.concat(attributes);

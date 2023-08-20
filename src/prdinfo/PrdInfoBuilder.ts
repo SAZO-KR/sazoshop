@@ -1,6 +1,6 @@
-import sha256 from "crypto-js/sha256";
-import PrdInfo from "./PrdInfo";
-import PrdOptionBuilder from "./PrdOptionBuilder";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import PrdInfo from './PrdInfo';
+import PrdOptionBuilder from './PrdOptionBuilder';
 
 export default class PrdInfoBuilder {
   prd: PrdInfo;
@@ -68,7 +68,7 @@ export default class PrdInfoBuilder {
   }
 
   options(OptionBuilders: PrdOptionBuilder[]) {
-    OptionBuilders.forEach((builder) => {
+    OptionBuilders.forEach(builder => {
       this.option(builder);
     });
     return this;
@@ -103,15 +103,16 @@ export default class PrdInfoBuilder {
    * 번역을 위해 PrdInfo와 하위 정보의 모든 한글 텍스트를 Hash값과 문자열로 이루어진 맵으로 변환
    */
   exportOriginalText(): Array<[string, string]> {
+    const SHA256 = require('crypto-js/sha256');
     const map = new Map<string, string>();
     if (this.prd.title !== undefined)
-      map.set(sha256(this.prd.title).toString(), this.prd.title);
-    this.prd.options.forEach((option) => {
+      map.set(SHA256(this.prd.title).toString(), this.prd.title);
+    this.prd.options.forEach(option => {
       if (option.title !== undefined)
-        map.set(sha256(option.title).toString(), option.title);
-      option.attributes.forEach((attr) => {
+        map.set(SHA256(option.title).toString(), option.title);
+      option.attributes.forEach(attr => {
         if (attr.name !== undefined)
-          map.set(sha256(attr.name).toString(), attr.name);
+          map.set(SHA256(attr.name).toString(), attr.name);
       });
     });
 
@@ -122,19 +123,20 @@ export default class PrdInfoBuilder {
    * 번역된 해시맵을 통해 PrdInfo와 하위 정보의 모든 한글 텍스트에 대한 번역 값을 적용
    */
   importTranslatedText(array: Array<[string, string]>): void {
+    const SHA256 = require('crypto-js/sha256');
     const map = PrdInfoBuilder.arrayToMap(array);
     if (this.prd.title !== undefined)
-      this.prd.translatedTitle = map.get(sha256(this.prd.title).toString());
+      this.prd.translatedTitle = map.get(SHA256(this.prd.title).toString());
 
     this.prd.options.forEach((option, idx) => {
       if (option.title !== undefined)
         this.prd.options[idx].translatedTitle = map.get(
-          sha256(option.title).toString()
+          SHA256(option.title).toString()
         );
       option.attributes.forEach((attr, attrIdx) => {
         if (attr.name !== undefined)
           this.prd.options[idx].attributes[attrIdx].translatedName = map.get(
-            sha256(attr.name).toString()
+            SHA256(attr.name).toString()
           );
       });
     });

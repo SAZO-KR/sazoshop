@@ -1,33 +1,26 @@
 {
   "name": "sazoshop",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Packages for Sazo Services, Inc.",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
   "repository": "https://github.com/sazo-kr/sazoshop",
   "author": "uxdx <uxdx159@gmail.com>",
   "license": "MIT",
+  "main": "build/src/index.js",
+  "files": [
+    "build/src",
+    "build/protos",
+    "!build/src/**/*.map"
+  ],
   "scripts": {
-    "lint": "eslint --ext .tsx --ext .ts src/",
-    "format": "prettier --check ./src",
-    "dev": "ts-node src/index.ts",
-    "dev:watch": "ts-node-dev --respawn src/index.ts",
-    "clean": "rimraf dist/*",
-    "tsc": "tsc",
-    "build": "npm-run-all clean tsc",
-    "start": "node .",
-    "test": "jest"
-  },
-  "compilerOptions": {
-    "types": [
-      "node "
-    ],
-    "declaration": true,
-    "target": "es2016",
-    "module": "CommonJS",
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "moduleResolution": "node"
+    "clean": "gts clean",
+    "compile": "tsc",
+    "compile-protos": "compileProtos src",
+    "fix": "gts fix",
+    "lint": "gts lint",
+    "prepare": "npm run compile",
+    "test": "c8 mocha build/test",
+    "pretest": "npm run compile",
+    "posttest": "npm run lint"
   },
   "dependencies": {
     "@babel/core": "^7.22.10",
@@ -42,13 +35,29 @@
     "typescript": "^5.1.6"
   },
   "devDependencies": {
+    "@types/chai": "^4.3.5",
     "@types/crypto-js": "^4.1.1",
-    "@types/node": "^20.5.0",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^20.4.5",
+    "@types/sinon": "^10.0.0",
     "@typescript-eslint/eslint-plugin": "^6.4.0",
     "@typescript-eslint/parser": "^6.4.0",
+    "c8": "^8.0.1",
+    "chai": "^4.3.7",
     "eslint": "^8.47.0",
+    "gapic-tools": "^0.1.8",
+    "gts": "^5.0.0",
+    "linkinator": "4.1.2",
+    "long": "^5.2.3",
+    "mocha": "^9.2.2",
+    "pack-n-play": "^1.0.0-2",
     "rimraf": "^5.0.1",
+    "sinon": "^15.0.0",
     "ts-node": "^10.9.1",
-    "ts-node-dev": "^2.0.0"
+    "ts-node-dev": "^2.0.0",
+    "typescript": "~5.1.6"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

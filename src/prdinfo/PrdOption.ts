@@ -1,4 +1,5 @@
-import PrdAttr from "./PrdAttr";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import PrdAttr from './PrdAttr';
 
 export default class PrdOption {
   title: string;
@@ -12,7 +13,7 @@ export default class PrdOption {
   prevOption?: PrdOption;
 
   constructor() {
-    this.title = "";
+    this.title = '';
     this.attributes = [];
   }
 
@@ -21,7 +22,7 @@ export default class PrdOption {
    * @returns  선택가능한 옵션 출력
    */
   selectableAttributes(): PrdAttr[] {
-    return this.attributes.filter((attr) => this.isSelectableAttribute(attr));
+    return this.attributes.filter(attr => this.isSelectableAttribute(attr));
   }
 
   /**
@@ -29,7 +30,7 @@ export default class PrdOption {
    * @param id 선택할 attribute의 id
    */
   selectAttribute(id: string): PrdAttr | undefined {
-    const attr = this.attributes.find((value) => value.id === id);
+    const attr = this.attributes.find(value => value.id === id);
     if (attr && this.isSelectableAttribute(attr))
       this.selectedAttributeId = attr.id;
     return attr;
@@ -65,13 +66,13 @@ export default class PrdOption {
    */
   selectedAttribute(): PrdAttr | undefined {
     if (this.selectedAttributeId === undefined) return undefined;
-    return this.attributes.find((attr) => attr.id === this.selectedAttributeId);
+    return this.attributes.find(attr => attr.id === this.selectedAttributeId);
   }
 
   toJSON(): any {
     return {
       ...this,
-      attributes: this.attributes.map((attr) => attr.toJSON()),
+      attributes: this.attributes.map(attr => attr.toJSON()),
       prevOption: this.prevOption ? this.prevOption.toJSON() : undefined,
     };
   }

@@ -1,4 +1,4 @@
-import PrdAttr from "./PrdAttr";
+import PrdAttr from './PrdAttr';
 
 export default class PrdAttrBuilder {
   attr: PrdAttr;
