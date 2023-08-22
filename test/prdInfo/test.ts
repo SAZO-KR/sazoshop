@@ -1,6 +1,6 @@
 import {describe, it, test} from 'mocha';
-import {dependencyData} from './sample_data/sample_data';
-import {PrdInfo, PrdInfoBuilder} from '../src';
+import {dependencyData} from './prdInfo/sample_data/sample_data';
+import {PrdInfo, PrdInfoBuilder} from '../../src';
 
 const expect = require('chai').expect;
 

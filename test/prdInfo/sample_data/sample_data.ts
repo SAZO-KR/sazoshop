@@ -1,4 +1,4 @@
-import {PrdAttrBuilder, PrdOptionBuilder, PrdInfoBuilder} from '../../src';
+import {PrdAttrBuilder, PrdOptionBuilder, PrdInfoBuilder} from '../../../src';
 
 export const dependencyData = new PrdInfoBuilder().options([
   new PrdOptionBuilder('opt1').attributes([
