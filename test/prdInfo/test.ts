@@ -1,5 +1,5 @@
 import {describe, it, test} from 'mocha';
-import {dependencyData} from './prdInfo/sample_data/sample_data';
+import {dependencyData} from './sample_data/sample_data';
 import {PrdInfo, PrdInfoBuilder} from '../../src';
 
 const expect = require('chai').expect;
@@ -47,7 +47,10 @@ describe('Sample web data', () => {
   const fs = require('fs');
   let prdInfo: PrdInfo;
   try {
-    const data = fs.readFileSync('./test/sample_data/coupang.txt', 'utf-8');
+    const data = fs.readFileSync(
+      './test/prdInfo/sample_data/coupang.txt',
+      'utf-8'
+    );
     prdInfo = PrdInfoBuilder.fromJSON(JSON.parse(data)).build();
     // console.log(prdInfo);
     prdInfo.options.forEach(opt => {

@@ -18,7 +18,7 @@
     "fix": "gts fix",
     "lint": "gts lint",
     "prepare": "npm run compile",
-    "test": "c8 mocha build/test",
+    "test": "c8 mocha build/test/**/test.js",
     "pretest": "npm run compile",
     "posttest": "npm run lint"
   },
