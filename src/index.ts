@@ -7,6 +7,7 @@ import {
   PrdAttrBuilder,
 } from './prdInfo';
 import {Order, OrderBuilder, DeliveryState} from './order';
+import {OptionTypeError, OptionNoAttrError} from './prdInfo/Error';
 
 export {
   PrdInfo,
@@ -18,4 +19,6 @@ export {
   Order,
   OrderBuilder,
   DeliveryState,
+  OptionTypeError,
+  OptionNoAttrError,
 };

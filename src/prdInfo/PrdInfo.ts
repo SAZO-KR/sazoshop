@@ -14,11 +14,13 @@ export default class PrdInfo {
 
   salePrice?: number; // 할인된 가격
 
-  thumbnailURL?: string;
+  thumbnailURL?: string[];
 
   isRocketDelivery?: boolean;
 
   deliveryFee?: number;
+
+  gifts?: string; // 사은품
 
   options: PrdOption[] = [];
 
@@ -49,10 +51,16 @@ export default class PrdInfo {
     return totalPrice;
   }
 
+  /**
+   * @description 번역 된 타이틀을 설정
+   */
   setTranslatedTitle(value: string) {
     this.translatedTitle = value;
   }
 
+  /**
+   * @description JSON으로 변환
+   */
   toJSON(): any {
     const mapToArray = this.optionPriceMap?.entries() ?? [];
     return {
@@ -62,6 +70,9 @@ export default class PrdInfo {
     };
   }
 
+  /**
+   * @description JSON에서 변환
+   */
   static fromJSON(data: any): PrdInfo {
     const prdInfo = Object.assign(new PrdInfo(), data);
     prdInfo.options = data.options.map(PrdOption.fromJSON);

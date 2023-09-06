@@ -1,10 +1,9 @@
 import {describe, it, test} from 'mocha';
 import {dependencyData} from './sample_data/sample_data';
 import {PrdInfo, PrdInfoBuilder} from '../../src';
+import {expect} from 'chai';
 
-const expect = require('chai').expect;
-
-describe('Option, Attributes describe test', () => {
+describe('옵션, 속성을 잘 불러왔는 지 테스트', () => {
   const builder = dependencyData;
   const prdinfo = builder.build();
   test('title', () => {
@@ -20,16 +19,16 @@ describe('Option, Attributes describe test', () => {
     });
   });
 });
-describe('Option Select Test', () => {
+
+describe('옵션 선택 시뮬레이션', () => {
   const builder = dependencyData;
   const prdinfo = builder.build();
   // 각각 옵션의 첫번째 속성을 선택
-  prdinfo.options[0].selectAttribute(
-    prdinfo.options[0].selectableAttributes()[0].id
-  );
-  prdinfo.options[1].selectAttribute(
-    prdinfo.options[1].selectableAttributes()[0].id
-  );
+  const attrs1 = prdinfo.options[0].selectableAttributes();
+  if (attrs1 !== undefined) prdinfo.options[0].selectAttribute(attrs1[0].id);
+  const attrs2 = prdinfo.options[1].selectableAttributes();
+  if (attrs2 !== undefined) prdinfo.options[1].selectAttribute(attrs2[0].id);
+
   // 선택된 옵션 출력
   console.log('[SELECTED OPTION]');
   prdinfo.options.forEach(opt => {
@@ -42,7 +41,8 @@ describe('Option Select Test', () => {
     });
   });
 });
-describe('Sample web data', () => {
+
+describe('웹 데이터 샘플로 테스트', () => {
   // Read file
   const fs = require('fs');
   let prdInfo: PrdInfo;
