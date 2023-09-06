@@ -29,6 +29,7 @@ export default class PrdAttr {
   }
 
   hash(): string {
-    return `${this.id}-${this.dependency}`;
+    const SHA256 = require('crypto-js/sha256');
+    return SHA256(this.toJSON()).toString();
   }
 }

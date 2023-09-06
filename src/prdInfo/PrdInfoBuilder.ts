@@ -34,12 +34,7 @@ export default class PrdInfoBuilder {
     return this;
   }
 
-  translatedTitle(translatedTitle: string) {
-    this.prd.translatedTitle = translatedTitle;
-    return this;
-  }
-
-  thumbnailURL(thumbnailURL: string) {
+  thumbnailURL(thumbnailURL: string[]) {
     this.prd.thumbnailURL = thumbnailURL;
     return this;
   }
@@ -54,7 +49,12 @@ export default class PrdInfoBuilder {
     return this;
   }
 
-  option(OptionBuilder: PrdOptionBuilder) {
+  gifts(gifts: string) {
+    this.prd.gifts = gifts;
+    return this;
+  }
+
+  private option(OptionBuilder: PrdOptionBuilder) {
     const option = OptionBuilder.build();
     // 옵션이 없을 때
     if (this.options.length === 0) {
@@ -100,7 +100,7 @@ export default class PrdInfoBuilder {
   ): Map<string, string> => new Map(arr);
 
   /**
-   * 번역을 위해 PrdInfo와 하위 정보의 모든 한글 텍스트를 Hash값과 문자열로 이루어진 맵으로 변환
+   * @description 번역을 위해 PrdInfo와 하위 정보의 모든 한글 텍스트를 Hash값과 문자열로 이루어진 맵으로 변환
    */
   exportOriginalText(): Array<[string, string]> {
     const SHA256 = require('crypto-js/sha256');
@@ -110,17 +110,21 @@ export default class PrdInfoBuilder {
     this.prd.options.forEach(option => {
       if (option.title !== undefined)
         map.set(SHA256(option.title).toString(), option.title);
-      option.attributes.forEach(attr => {
+      option.attributes?.forEach(attr => {
         if (attr.name !== undefined)
           map.set(SHA256(attr.name).toString(), attr.name);
       });
+      option.textValue
+        ? map.set(SHA256(option.textValue).toString(), option.textValue)
+        : undefined;
     });
 
     return PrdInfoBuilder.mapToArray(map);
   }
 
   /**
-   * 번역된 해시맵을 통해 PrdInfo와 하위 정보의 모든 한글 텍스트에 대한 번역 값을 적용
+   * @description 번역된 해시맵을 통해 PrdInfo와 하위 정보의 모든 한글 텍스트에 대한 번역 값을 적용
+   * @param array 번역된 해시맵
    */
   importTranslatedText(array: Array<[string, string]>): void {
     const SHA256 = require('crypto-js/sha256');
@@ -133,12 +137,18 @@ export default class PrdInfoBuilder {
         this.prd.options[idx].translatedTitle = map.get(
           SHA256(option.title).toString()
         );
-      option.attributes.forEach((attr, attrIdx) => {
-        if (attr.name !== undefined)
-          this.prd.options[idx].attributes[attrIdx].translatedName = map.get(
+      // Attrs 번역
+      option.attributes?.forEach((attr, attrIdx) => {
+        if (attr.name !== undefined && this.prd.options[idx].attributes)
+          this.prd.options[idx].attributes![attrIdx].translatedName = map.get(
             SHA256(attr.name).toString()
           );
       });
+      // TextValue 번역
+      if (option.textValue !== undefined && this.prd.options[idx].textValue)
+        this.prd.options[idx].translatedTextValue = map.get(
+          SHA256(option.textValue).toString()
+        );
     });
   }
 
