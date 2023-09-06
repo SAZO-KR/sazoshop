@@ -1,6 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import PrdOption from './PrdOption';
 
+/**
+ * 상품 정보 클래스
+ * @description
+ * 상품 정보를 담는 클래스. PrdInfoBuilder를 통해 생성한다.
+ * @example
+ * const prdInfo = new PrdInfoBuilder().setTitle('상품명').build();
+ *
+ */
 export default class PrdInfo {
   title?: string;
 
@@ -22,8 +30,27 @@ export default class PrdInfo {
 
   gifts?: string; // 사은품
 
+  /**
+   * @description
+   * 옵션들을 담는 배열
+   * @example
+   * prdInfo.options.forEach(option => {
+   *  console.log(option.title);
+   * });
+   */
   options: PrdOption[] = [];
 
+  /**
+   * @description
+   * 옵션 조합 별 가격을 담는 맵
+   * @example
+   * {
+   *  "attrId1:attrId2:...:attrIdn": 10000,
+   *  ...
+   *  "attrId1:attrId2:...:attrIdn": 12000,
+   * }
+   *
+   */
   optionPriceMap?: Map<string, number>; // Key: "속성1:속성2:...:속성n"옵션조합 별 가격
 
   // importFirestoreData() {}
@@ -75,8 +102,10 @@ export default class PrdInfo {
    */
   static fromJSON(data: any): PrdInfo {
     const prdInfo = Object.assign(new PrdInfo(), data);
-    prdInfo.options = data.options.map(PrdOption.fromJSON);
-    prdInfo.optionPriceMap = new Map(data.optionPriceMap);
+    if (data.options !== undefined)
+      prdInfo.options = data.options.map(PrdOption.fromJSON);
+    if (data.optionPriceMap !== undefined)
+      prdInfo.optionPriceMap = new Map(data.optionPriceMap);
     return prdInfo;
   }
 }
