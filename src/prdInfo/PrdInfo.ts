@@ -118,7 +118,7 @@ export default class PrdInfo {
       attr => attr.id === attrId
     );
     if (attr === undefined) return false; // 속성이 없으면 false
-    if (attr.dependency === undefined) return true; // 의존성이 없으면 true
+    if (!attr.dependency) return true; // 의존성이 없으면 true
     if (optionIdx >= this.options.length) return false; // 옵션이 없으면 false
     // 의존성이 있으면 의존성이 있는 옵션들이 선택되어 있는지 확인
 

@@ -24,21 +24,17 @@ describe('옵션 선택 시뮬레이션', () => {
   const builder = dependencyData;
   const prdinfo = builder.build();
   // 각각 옵션의 첫번째 속성을 선택
-  const attrs1 = prdinfo.options[0].selectableAttributes();
-  if (attrs1 !== undefined) prdinfo.options[0].selectAttribute(attrs1[0].id);
-  const attrs2 = prdinfo.options[1].selectableAttributes();
-  if (attrs2 !== undefined) prdinfo.options[1].selectAttribute(attrs2[0].id);
+  console.log('Selectable Attributes 1 ', prdinfo.selectableAttributes(0));
+  const attrs1 = prdinfo.selectableAttributes(0);
+  console.log('Select Attribute1 : "1"');
+  if (attrs1 !== undefined) prdinfo.selectAttribute(0, attrs1[0].id);
+  console.log('Select Attribute2 : "11"');
+  const attrs2 = prdinfo.selectableAttributes(1);
+  if (attrs2 !== undefined) prdinfo.selectAttribute(1, attrs2[0].id);
+  console.log('Selectable Attributes 3 ', prdinfo.selectableAttributes(2));
 
-  // 선택된 옵션 출력
-  console.log('[SELECTED OPTION]');
-  prdinfo.options.forEach(opt => {
-    console.log('option:', opt.title);
-    console.log('  select: ', opt.selectedAttributeId);
-  });
-  test('10000(기본)+10000(옵션1-속성1)+1000(옵션2-속성1)', () => {
-    it('should be 21000', () => {
-      expect(prdinfo.totalPrice()).to.equal(21000);
-    });
+  it('should be 1', () => {
+    expect(prdinfo.selectableAttributes(2)?.length).to.equal(1);
   });
 });
 
