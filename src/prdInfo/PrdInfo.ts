@@ -85,18 +85,12 @@ export default class PrdInfo {
   }
 
   /**
-   * @description 해당 옵션의 선택을 해제 (선택된 속성을 undefined로 설정)
-   * 의존성이 있는 경우 의존성이 있는 옵션들의 선택도 해제
+   * @description 해당 옵션의 선택을 해제
    * @param optionIdx 옵션 인덱스
    */
   unselectAttribute(optionIdx: number) {
     if (optionIdx >= this.options.length) return;
     this.options[optionIdx].selectedAttributeId = undefined;
-    if (
-      optionIdx + 1 < this.options.length &&
-      this.options[optionIdx + 1].hasDependency
-    )
-      this.unselectAttribute(optionIdx + 1);
   }
 
   /**
@@ -127,18 +121,14 @@ export default class PrdInfo {
     if (attr.dependency === undefined) return true; // 의존성이 없으면 true
     if (optionIdx >= this.options.length) return false; // 옵션이 없으면 false
     // 의존성이 있으면 의존성이 있는 옵션들이 선택되어 있는지 확인
-    for (let i = 0; i < attr.dependency.length; i++) {
-      // i번째 경우의 수에 대해 의존성이 있는 옵션들이 선택되어 있는지 확인
-      let valid = true;
-      for (let j = 0; j < optionIdx; j++) {
-        // i번째 의존성 != i번째 옵션의 선택된 속성 이면 false
-        if (attr.dependency[i][j] !== this.selectedAttribute(j)?.id) {
-          valid = false;
-        }
+
+    for (let i = 0; i < optionIdx; i++) {
+      // i번째 의존성 != i번째 옵션의 선택된 속성 이q면 false
+      if (attr.dependency[i] !== this.selectedAttribute(i)?.id) {
+        return false;
       }
-      if (valid) return true;
     }
-    return false;
+    return true;
   }
 
   /**
