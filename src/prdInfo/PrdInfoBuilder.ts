@@ -54,6 +54,19 @@ export default class PrdInfoBuilder {
     return this;
   }
 
+  /**
+   * @description 텍스트 옵션 입력
+   * @param optionIdx 옵션의 인덱스
+   * @returns this
+   * @throws OptionTypeError 옵션이 선택형일 때
+   */
+  optionTextValue(optionIdx: number, textValue: string) {
+    if (this.prd.options[optionIdx] === undefined)
+      throw new Error('Option index out of rangex');
+    this.prd.options[optionIdx].setTextValue(textValue);
+    return this;
+  }
+
   private option(OptionBuilder: PrdOptionBuilder) {
     const option = OptionBuilder.build();
     // 옵션이 없을 때
@@ -62,7 +75,6 @@ export default class PrdInfoBuilder {
       return this;
     }
     // 옵션이 있을 때
-    option.prevOption = this.prd.options[this.prd.options.length - 1];
     this.prd.options.push(option);
     return this;
   }
@@ -79,6 +91,7 @@ export default class PrdInfoBuilder {
     return this;
   }
 
+  // Export & Import
   toJSON() {
     return this.prd.toJSON();
   }
@@ -154,5 +167,9 @@ export default class PrdInfoBuilder {
 
   build() {
     return this.prd;
+  }
+
+  copy() {
+    return PrdInfoBuilder.fromJSON(this.prd.toJSON());
   }
 }

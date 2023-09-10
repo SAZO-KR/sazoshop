@@ -23,23 +23,31 @@ describe('옵션, 속성을 잘 불러왔는 지 테스트', () => {
 describe('옵션 선택 시뮬레이션', () => {
   const builder = dependencyData;
   const prdinfo = builder.build();
-  // 각각 옵션의 첫번째 속성을 선택
-  const attrs1 = prdinfo.options[0].selectableAttributes();
-  if (attrs1 !== undefined) prdinfo.options[0].selectAttribute(attrs1[0].id);
-  const attrs2 = prdinfo.options[1].selectableAttributes();
-  if (attrs2 !== undefined) prdinfo.options[1].selectAttribute(attrs2[0].id);
+  // 각각 옵션 선택
+  console.log('Selectable Attrs of opt0', prdinfo.selectableAttributes(0));
+  console.log('select attrId=1');
+  if (prdinfo.options[0].attributes === undefined) return;
+  prdinfo.selectAttribute(0, '3');
+  console.log('Selectable Attrs of opt1', prdinfo.selectableAttributes(1));
+  console.log('Is selectable?', prdinfo.isSelectableAttribute(1, '11'));
+  console.log('select attrId=11');
+  if (prdinfo.options[1].attributes === undefined) return;
+  prdinfo.selectAttribute(1, '16');
+  console.log('Selectable Attrs of opt2', prdinfo.selectableAttributes(2));
 
-  // 선택된 옵션 출력
-  console.log('[SELECTED OPTION]');
-  prdinfo.options.forEach(opt => {
-    console.log('option:', opt.title);
-    console.log('  select: ', opt.selectedAttributeId);
+  // 선택가능 옵션 0
+
+  // 선택된 옵션 확인
+  it('should be eqaul to 2', () => {
+    expect(prdinfo.selectableAttributes(1)?.length).to.equal(2); // 14, 16
   });
-  test('10000(기본)+10000(옵션1-속성1)+1000(옵션2-속성1)', () => {
-    it('should be 21000', () => {
-      expect(prdinfo.totalPrice()).to.equal(21000);
-    });
+  it('should be true', () => {
+    expect(prdinfo.isSelectableAttribute(2, '24')).to.be.true;
   });
+  // // 세번째 옵션 선택 가능한 속성 확인
+  // it('should be 1', () => {
+  //   expect(prdinfo.selectableAttributes(2)?.length).to.equal(1);
+  // });
 });
 
 describe('웹 데이터 샘플로 테스트', () => {

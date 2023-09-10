@@ -17,7 +17,7 @@ export default class PrdAttrBuilder {
     return this;
   }
 
-  dependency(dependency: string[]) {
+  dependency(dependency: string[][]) {
     this.attr.dependency = dependency;
     return this;
   }

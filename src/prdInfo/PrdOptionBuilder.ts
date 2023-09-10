@@ -7,12 +7,13 @@ export default class PrdOptionBuilder {
   option: PrdOption;
 
   /**
-   * @description 옵션 빌더 생성 옵션의 제목을 설정. 옵션의 타입의 기본값은 SELECT로 설정
+   * @description 옵션 빌더 생성 옵션의 제목을 설정. 옵션의 타입의 기본값은 SELECT로 설정 옵션의 의존성 기본값은 false로 설정
    * @param title 옵션의 제목
    */
   constructor(title: string) {
     this.option = new PrdOption(title);
     this.option.title = title;
+    this.option.hasDependency = false;
   }
 
   /**
@@ -26,11 +27,10 @@ export default class PrdOptionBuilder {
   }
 
   /**
-   * @description 옵션의 번역된 제목을 설정
-   * @param title 제목 값
+   * @description 옵션에 의존성이 있는 지 설정 기본값은 false
    */
-  translatedtitle(title: string) {
-    this.option.translatedTitle = title;
+  hasDependency(hasDependency: boolean) {
+    this.option.hasDependency = hasDependency;
     return this;
   }
 

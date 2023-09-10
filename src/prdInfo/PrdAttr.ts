@@ -6,7 +6,7 @@ export default class PrdAttr {
 
   translatedName?: string;
 
-  dependency?: string[];
+  dependency?: string[][];
 
   price?: number;
 
