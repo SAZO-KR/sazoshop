@@ -62,7 +62,6 @@ export default class PrdInfoBuilder {
       return this;
     }
     // 옵션이 있을 때
-    option.prevOption = this.prd.options[this.prd.options.length - 1];
     this.prd.options.push(option);
     return this;
   }

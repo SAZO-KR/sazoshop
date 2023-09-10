@@ -78,7 +78,7 @@ const ProductsTest: FC = () => {
                           selectAtrr(optionIdx, attr.id);
                         }}
                       >
-                        {attr.id}
+                        {attr.name}
                       </Button>
                     ))}
                 </Container>

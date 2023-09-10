@@ -131,6 +131,15 @@ export default class PrdInfo {
     return true;
   }
 
+  setTextValue(optionIdx: number, value: string) {
+    if (
+      optionIdx >= this.options.length ||
+      this.options[optionIdx].type !== 'TEXT'
+    )
+      return;
+    this.options[optionIdx].textValue = value;
+  }
+
   /**
    * @returns {number} 옵션까지 다 합친 가격
    */
@@ -138,8 +147,8 @@ export default class PrdInfo {
     // 가격 맵이 있으면 맵에서 찾아서 반환
     if (this.optionPriceMap) {
       const key = '';
-      this.options.forEach(opt => {
-        key.concat(opt.selectedAttribute()?.id ?? '');
+      this.options.forEach((opt, idx) => {
+        key.concat(this.selectedAttribute(idx)?.id ?? '');
       });
       if (this.optionPriceMap.get(key) === undefined)
         throw new Error('There is no price for this option.');
@@ -147,8 +156,8 @@ export default class PrdInfo {
     }
     // 가격 맵이 없으면 옵션 가격을 다 더해서 반환
     let totalPrice = this.salePrice ?? 0;
-    this.options.forEach(option => {
-      totalPrice += option.selectedAttribute()?.price ?? 0;
+    this.options.forEach((opt, idx) => {
+      totalPrice += this.selectedAttribute(idx)?.price ?? 0;
     });
     return totalPrice;
   }

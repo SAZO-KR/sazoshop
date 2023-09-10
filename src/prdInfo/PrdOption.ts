@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import {OptionNoAttrError, OptionTypeError} from './Error';
 import PrdAttr from './PrdAttr';
 
 export default class PrdOption {
@@ -19,30 +18,10 @@ export default class PrdOption {
 
   selectedAttributeId?: string;
 
-  prevOption?: PrdOption;
-
   constructor(title = '') {
     this.title = title;
     this.attributes = [];
     this.type = 'SELECT';
-  }
-
-  /**
-   * @description 텍스트 옵션의 입력값을 설정. type이 TEXT일 때만 사용가능
-   * @param value 텍스트 옵션의 입력값
-   */
-  setTextValue(value: string) {
-    if (this.type !== 'TEXT') throw new OptionTypeError('type is not TEXT.');
-    this.textValue = value;
-  }
-
-  /**
-   * @returns 선택된 attribute
-   */
-  selectedAttribute(): PrdAttr | undefined {
-    if (this.selectedAttributeId === undefined) return undefined;
-    if (this.attributes === undefined) throw new OptionNoAttrError();
-    return this.attributes.find(attr => attr.id === this.selectedAttributeId);
   }
 
   // === JSON ===
@@ -50,7 +29,6 @@ export default class PrdOption {
     return {
       ...this,
       attributes: this.attributes?.map(attr => attr.toJSON()),
-      prevOption: this.prevOption ? this.prevOption.toJSON() : undefined,
     };
   }
 
