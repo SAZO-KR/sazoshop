@@ -26,6 +26,15 @@ export default class PrdOptionBuilder {
   }
 
   /**
+   * @param required 옵션의 필수 여부를 설정
+   * @returns
+   */
+  required(required: boolean) {
+    this.option.required = required;
+    return this;
+  }
+
+  /**
    * @description 옵션의 번역된 제목을 설정
    * @param title 제목 값
    */
