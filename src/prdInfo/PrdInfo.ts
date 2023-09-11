@@ -147,7 +147,7 @@ export default class PrdInfo {
    */
   totalPrice(): number {
     // 가격 맵이 있으면 맵에서 찾아서 반환
-    if (this.optionPriceMap) {
+    if (this.optionPriceMap && this.optionPriceMap.size > 0) {
       const key = '';
       this.options.forEach((opt, idx) => {
         key.concat(this.selectedAttribute(idx)?.id ?? '');
