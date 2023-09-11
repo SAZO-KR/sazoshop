@@ -11,6 +11,8 @@ import PrdOption from './PrdOption';
  *
  */
 export default class PrdInfo {
+  id?: string;
+
   title?: string;
 
   url?: string;
@@ -191,5 +193,14 @@ export default class PrdInfo {
     if (data.optionPriceMap !== undefined)
       prdInfo.optionPriceMap = new Map(data.optionPriceMap);
     return prdInfo;
+  }
+
+  clone(): PrdInfo {
+    return PrdInfo.fromJSON(this.toJSON());
+  }
+
+  hash(): string {
+    const SHA256 = require('crypto-js/sha256');
+    return SHA256(this.toJSON()).toString();
   }
 }

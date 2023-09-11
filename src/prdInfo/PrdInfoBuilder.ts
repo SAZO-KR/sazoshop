@@ -152,6 +152,7 @@ export default class PrdInfoBuilder {
   }
 
   build() {
+    this.prd.id = this.prd.hash();
     return this.prd;
   }
 }
