@@ -8,6 +8,7 @@ import {
 } from './prdInfo';
 import {Order, OrderBuilder, DeliveryState} from './order';
 import {OptionTypeError, OptionNoAttrError} from './prdInfo/Error';
+import {UserData} from './user/User';
 
 export {
   PrdInfo,
@@ -21,4 +22,5 @@ export {
   DeliveryState,
   OptionTypeError,
   OptionNoAttrError,
+  UserData,
 };
