@@ -6,5 +6,5 @@ export type OrderSchema = {
     prdInfo: string;
     additionalRequests?: string;
   }[];
-  createdAt?: string;
+  createdAt?: number; // Timestamp.now().toMillis()
 };
