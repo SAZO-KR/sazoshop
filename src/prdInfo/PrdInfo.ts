@@ -265,6 +265,6 @@ export default class PrdInfo {
 
   hash(): string {
     const SHA256 = require('crypto-js/sha256');
-    return SHA256(this.toJSON()).toString();
+    return SHA256(JSON.stringify(this.toJSON())).toString();
   }
 }
