@@ -9,7 +9,7 @@ import {
 import {Order, OrderBuilder, DeliveryState} from './order';
 import {OptionTypeError, OptionNoAttrError} from './prdInfo/Error';
 import {UserData} from './user/User';
-import {CartSchema} from './httpSchema/CartSchema';
+import {OrderSchema} from './httpSchema/OrderSchema';
 
 export {
   PrdInfo,
@@ -24,5 +24,5 @@ export {
   OptionTypeError,
   OptionNoAttrError,
   UserData,
-  CartSchema,
+  OrderSchema,
 };

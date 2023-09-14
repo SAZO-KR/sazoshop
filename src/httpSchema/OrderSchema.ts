@@ -1,4 +1,4 @@
-export type CartSchema = {
+export type OrderSchema = {
   uid: string;
   data: {
     id: string;
@@ -6,4 +6,5 @@ export type CartSchema = {
     prdInfo: string;
     additionalRequests?: string;
   }[];
+  createdAt?: string;
 };
