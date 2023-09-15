@@ -15,13 +15,3 @@ export type UserData = {
   address?: string;
   addressDetail?: string;
 };
-
-export default class User {
-  uid: string;
-  displayName?: string;
-  email?: string;
-
-  constructor(uid: string) {
-    this.uid = uid;
-  }
-}
