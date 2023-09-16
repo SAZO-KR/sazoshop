@@ -10,6 +10,8 @@ export default class PrdAttr {
 
   price?: number;
 
+  convertedPrice?: number;
+
   imageURL?: string;
 
   constructor(id: string) {

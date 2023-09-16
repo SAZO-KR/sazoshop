@@ -25,6 +25,10 @@ export default class PrdInfo {
 
   salePrice?: number; // 할인된 가격
 
+  convertedOriginPrice?: number; // 할인 안된 가격 환율 적용
+
+  convertedSalePrice?: number; // 할인된 가격 환율 적용
+
   thumbnailURL?: string[];
 
   isRocketDelivery?: boolean;
@@ -135,7 +139,7 @@ export default class PrdInfo {
     // 의존성이 있으면 의존성이 있는 옵션들이 선택되어 있는지 확인
 
     for (let i = 0; i < optionIdx; i++) {
-      // i번째 의존성 != i번째 옵션의 선택된 속성 이q면 false
+      // i번째 의존성 != i번째 옵션의 선택된 속성 이면 false
       if (attr.dependency[i] !== this.selectedAttribute(i)?.id) {
         return false;
       }
@@ -172,6 +176,22 @@ export default class PrdInfo {
       totalPrice += this.selectedAttribute(idx)?.price ?? 0;
     });
     return totalPrice;
+  }
+
+  /**
+   * @description 환율을 적용해서 convertedPrice를 설정
+   * @param rate
+   */
+  convertPrice(rate: number) {
+    if (this.originPrice !== undefined)
+      this.convertedOriginPrice = this.originPrice * rate;
+    if (this.salePrice !== undefined)
+      this.convertedSalePrice = this.salePrice * rate;
+    this.options.forEach(option => {
+      option.attributes?.forEach(attr => {
+        if (attr.price !== undefined) attr.convertedPrice = attr.price * rate;
+      });
+    });
   }
 
   /**
