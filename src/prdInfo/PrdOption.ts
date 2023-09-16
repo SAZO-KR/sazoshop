@@ -6,9 +6,9 @@ export default class PrdOption {
 
   translatedTitle?: string;
 
-  required?: boolean; // 필수 옵션 여부 선택형인지 필수인지
+  required?: boolean = true; // 필수 옵션 여부 선택형인지 필수인지 default : true
 
-  type?: 'TEXT' | 'SELECT'; // 옵션 타입 입력형인지 선택형인지
+  type?: 'TEXT' | 'SELECT' = 'SELECT'; // 옵션 타입 입력형인지 선택형인지 default : SELECT
 
   textValue?: string; // 입력형 옵션의 입력값. type이 TEXT일 때만 사용
 
@@ -20,8 +20,6 @@ export default class PrdOption {
 
   constructor(title = '') {
     this.title = title;
-    this.attributes = [];
-    this.type = 'SELECT';
   }
 
   // === JSON ===

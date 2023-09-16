@@ -110,6 +110,16 @@ export default class PrdInfo {
   }
 
   /**
+   * @description 모든 필수 옵션이 선택되었는지 확인
+   * @returns
+   */
+  isRequiredOptionSelected(): boolean {
+    return this.options
+      .filter(opt => opt.required)
+      .every(option => option.selectedAttributeId !== undefined);
+  }
+
+  /**
    * @description 옵션의 속성이 선택 가능한지 확인. 의존성이 없으면 무조건 true. 의존성이 있으면 의존성이 있는 옵션들이 선택되어 있는지 확인
    * @param optionIdx
    * @param attrId

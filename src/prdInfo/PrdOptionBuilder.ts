@@ -12,7 +12,6 @@ export default class PrdOptionBuilder {
    */
   constructor(title: string) {
     this.option = new PrdOption(title);
-    this.option.title = title;
   }
 
   /**
