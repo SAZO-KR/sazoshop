@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import PrdAttr from './PrdAttr';
 import PrdOption from './PrdOption';
+import PrdOptionBuilder from './PrdOptionBuilder';
 
 /**
  * 상품 정보 클래스
@@ -147,6 +148,12 @@ export default class PrdInfo {
     return true;
   }
 
+  /**
+   * @description 텍스트형 옵션의 값을 설정
+   * @param optionIdx
+   * @param value
+   * @returns
+   */
   setTextValue(optionIdx: number, value: string) {
     if (
       optionIdx >= this.options.length ||
@@ -154,6 +161,24 @@ export default class PrdInfo {
     )
       return;
     this.options[optionIdx].textValue = value;
+  }
+
+  /**
+   * @description 옵션을 추가
+   * @param builder
+   */
+  addOption(builder: PrdOptionBuilder): void {
+    this.options.push(builder.build());
+  }
+
+  // * 가격과 관련된 메소드들=============================
+
+  setSalesPrice(price: number) {
+    this.salePrice = price;
+  }
+
+  setOriginPrice(price: number) {
+    this.originPrice = price;
   }
 
   /**
@@ -192,6 +217,14 @@ export default class PrdInfo {
         if (attr.price !== undefined) attr.convertedPrice = attr.price * rate;
       });
     });
+  }
+
+  /**
+   * @description 타이틀 재설정
+   * @param value
+   */
+  setTitle(value: string) {
+    this.title = value;
   }
 
   /**

@@ -1,7 +1,7 @@
 import {UserData} from '../user/User';
 
 export type OrderSchema = {
-  uid: string; // User.uid
+  uid?: string; // User.uid
   orderId?: string; // 주문번호 서버측에서 생성
   data: {
     id: string; // 상품 id (prdInfo.hash())

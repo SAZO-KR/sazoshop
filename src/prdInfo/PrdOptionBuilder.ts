@@ -81,7 +81,7 @@ export default class PrdOptionBuilder {
    * @param value 옵션의 입력값
    * @throws type이 TEXT가 아닐 때
    */
-  textDefaultValue(value: string) {
+  textValue(value: string) {
     if (this.option.type !== 'TEXT')
       throw new OptionTypeError('The Option type must be TEXT.');
     this.option.textValue = value;
