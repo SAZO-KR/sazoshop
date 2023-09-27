@@ -323,7 +323,6 @@ export default class PrdInfo {
   }
 
   clone(): PrdInfo {
-    this.id = this.hash();
     return PrdInfo.fromJSON(this.toJSON());
   }
 
