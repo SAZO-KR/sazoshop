@@ -37,9 +37,17 @@ export default class ProductInfo {
   toCurrency?: string; // 환율 목적지 통화 ex) JPY
   currencyRate?: number; // 환율 = toCurrency / fromCurrency
 
-  originPrice?: number; // 원본 가격
+  originPrice?: {
+    defaultPrice?: number;
+    discountPrice?: number;
+    couponPrice?: number;
+  }; // 원본 가격
 
-  exchangedPrice?: number; // 환율 적용된 가격
+  exchangedPrice?: {
+    defaultPrice?: number;
+    discountPrice?: number;
+    couponPrice?: number;
+  }; // 환율 적용된 가격
 
   expectedDeliveryTime?: String; // 예상 도착일
 
