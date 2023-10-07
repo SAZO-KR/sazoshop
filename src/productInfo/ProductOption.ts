@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import ProductAttribute from './ProductAttribute';
 
-export default class PrdOption {
+export default class ProductOption {
   title: string;
 
   translatedTitle?: string;
@@ -24,16 +24,16 @@ export default class PrdOption {
     };
   }
 
-  static fromJSON(data: any): PrdOption {
-    const prdOption = Object.assign(new PrdOption(), data);
+  static fromJSON(data: any): ProductOption {
+    const prdOption = Object.assign(new ProductOption(), data);
     prdOption.attributes = data.attributes.map(ProductAttribute.fromJSON);
     // null safety ok
     prdOption.prevOption = data.prevOption
-      ? PrdOption.fromJSON(data.prevOption)
+      ? ProductOption.fromJSON(data.prevOption)
       : undefined;
     // null safety oks
     prdOption.nextOption = data.nextOption
-      ? PrdOption.fromJSON(data.nextOption)
+      ? ProductOption.fromJSON(data.nextOption)
       : undefined;
     return prdOption;
   }
