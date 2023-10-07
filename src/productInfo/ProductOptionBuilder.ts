@@ -1,4 +1,3 @@
-import ProductAttribute from './ProductAttribute';
 import ProductAttributeBuilder from './ProductAttributeBuilder';
 import ProductOption from './ProductOption';
 
@@ -28,11 +27,7 @@ export default class ProductOptionBuilder {
    * @throws type이 SELECT가 아닐 때
    */
   attributes(attrbuilder: ProductAttributeBuilder[]) {
-    const attributes: ProductAttribute[] = [];
-    attrbuilder.forEach(builder => {
-      attributes.push(builder.build());
-    });
-    this.option.attributes = attributes;
+    this.option.attributes = attrbuilder.map(builder => builder.build());
     return this;
   }
 
