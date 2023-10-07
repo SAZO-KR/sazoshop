@@ -1,5 +1,5 @@
 import ProductAttribute from './ProductAttribute';
-import ProductAttrBuilder from './ProductAttrBuilder';
+import ProductAttributeBuilder from './ProductAttributeBuilder';
 import ProductOption from './ProductOption';
 
 export default class ProductOptionBuilder {
@@ -27,7 +27,7 @@ export default class ProductOptionBuilder {
    * @param attrbuilder[] 추가할 속성의 빌더 배열
    * @throws type이 SELECT가 아닐 때
    */
-  attributes(attrbuilder: ProductAttrBuilder[]) {
+  attributes(attrbuilder: ProductAttributeBuilder[]) {
     const attributes: ProductAttribute[] = [];
     attrbuilder.forEach(builder => {
       attributes.push(builder.build());
