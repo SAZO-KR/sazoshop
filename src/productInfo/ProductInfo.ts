@@ -51,19 +51,6 @@ export default class ProductInfo {
   requiredOptions: ProductOption[] = []; // 필수 옵션들
   extraOptions: ProductOption[] = []; // 추가 옵션들
 
-  /**
-   * @description
-   * 옵션 조합 별 가격을 담는 맵
-   * @example
-   * {
-   *  "attrId1:attrId2:...:attrIdn": 10000,
-   *  ...
-   *  "attrId1:attrId2:...:attrIdn": 12000,
-   * }
-   *
-   */
-  optionPriceMap?: Map<string, number>; // Key: "속성1:속성2:...:속성n"옵션조합 별 가격
-
   // * 옵션과 속성에 관련한 메소드들=============================
   /**
    *
@@ -245,12 +232,10 @@ export default class ProductInfo {
    * @description JSON으로 변환
    */
   toJSON(): any {
-    const mapToArray = this.optionPriceMap?.entries() ?? [];
     return {
       ...this,
       requiredOptions: this.requiredOptions.map(option => option.toJSON()),
       extraOptions: this.extraOptions.map(option => option.toJSON()),
-      optionPriceMap: Array.from(mapToArray),
     };
   }
 

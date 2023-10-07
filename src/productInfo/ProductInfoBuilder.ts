@@ -99,11 +99,6 @@ export default class ProductInfoBuilder {
     return this;
   }
 
-  optionPriceMap(optionPriceMap: Map<string, number>) {
-    this.prd.optionPriceMap = optionPriceMap;
-    return this;
-  }
-
   // * 번역 관련 메소드들=======================================
   // Map을 배열로 변환
   private static readonly mapToArray = (
