@@ -49,6 +49,9 @@ export default class ProductInfo {
     couponPrice?: number;
   }; // 환율 적용된 가격
 
+  localShippingCost?: number; // 국내 배송비
+  exchangedLocalShippingCost?: number; // 환율 적용된 국내 배송비
+
   expectedDeliveryTime?: String; // 예상 도착일
 
   expectedDeliveryFee?: number; // 예상 배송비
