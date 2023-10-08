@@ -6,8 +6,6 @@ export default class ProductOption {
 
   translatedTitle?: string;
 
-  required?: boolean = true; // 필수 옵션 여부 선택형인지 필수인지 default : true
-
   attributes?: ProductAttribute[];
 
   selectedAttributeId?: string;
