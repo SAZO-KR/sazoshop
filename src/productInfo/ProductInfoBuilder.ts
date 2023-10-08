@@ -64,6 +64,22 @@ export default class ProductInfoBuilder {
     return this;
   }
 
+  currencyRate(currencyRate: number) {
+    this.prd.currencyRate = currencyRate;
+    this.prd.exchangedPrice = {
+      defaultPrice: this.prd.originPrice?.defaultPrice
+        ? this.prd.originPrice.defaultPrice * currencyRate
+        : undefined,
+      discountPrice: this.prd.originPrice?.discountPrice
+        ? this.prd.originPrice.discountPrice * currencyRate
+        : undefined,
+      couponPrice: this.prd.originPrice?.couponPrice
+        ? this.prd.originPrice.couponPrice * currencyRate
+        : undefined,
+    };
+    return this;
+  }
+
   originPrice(originPrice: {
     defaultPrice?: number;
     discountPrice?: number;
