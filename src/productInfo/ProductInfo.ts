@@ -111,10 +111,13 @@ export default class ProductInfo {
    * "색상 : 검정 / 사이즈 : 105 /"
    */
   printRequiredOptionCombination(): string {
-    const combination = '';
+    let combination = '';
     this.requiredOptions.forEach(option => {
-      combination.concat(
-        option.title + ' : ' + option.selectedAttributeId ?? 'null' + ' / '
+      const selectedAttribute = option.attributes?.find(
+        attr => attr.id === option.selectedAttributeId
+      );
+      combination = combination.concat(
+        `${option.translatedTitle} (${option.title}) : ${selectedAttribute?.translatedName} (${selectedAttribute?.name}) / `
       );
     });
     return combination;
@@ -126,10 +129,13 @@ export default class ProductInfo {
    * "추가구성품 : 안경닦이 /"
    */
   printExtraOptionCombination(): string {
-    const combination = '';
+    let combination = '';
     this.extraOptions.forEach(option => {
-      combination.concat(
-        option.title + ' : ' + option.selectedAttributeId ?? 'null' + ' / '
+      const selectedAttribute = option.attributes?.find(
+        attr => attr.id === option.selectedAttributeId
+      );
+      combination = combination.concat(
+        `${option.translatedTitle} (${option.title}) : ${selectedAttribute?.translatedName} (${selectedAttribute?.name}) / `
       );
     });
     return combination;
