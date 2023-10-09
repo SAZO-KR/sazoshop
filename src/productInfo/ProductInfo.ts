@@ -77,8 +77,10 @@ export default class ProductInfo {
       throw new Error('There is no option at this index.');
     if (this.isSelectableAttribute(optionIdx, attrId)) {
       this.requiredOptions[optionIdx].selectedAttributeId = attrId;
-    }
+    } else {
+
     throw new Error('This attribute is not selectable.');
+    }
   }
 
   /**
@@ -92,8 +94,9 @@ export default class ProductInfo {
       throw new Error('There is no option at this index.');
     if (this.isSelectableAttribute(optionIdx, attrId)) {
       this.extraOptions[optionIdx].selectedAttributeId = attrId;
+    } else {
+      throw new Error('This attribute is not selectable.');
     }
-    throw new Error('This attribute is not selectable.');
   }
 
   /**
