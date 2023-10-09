@@ -72,15 +72,11 @@ export default class ProductInfo {
    * @throws 해당 옵션에 해당 속성이 없을 때
    * @throws 해당 속성이 선택 가능한 속성이 아닐 때
    */
-  selectRequiredOption(optionIdx: number, attrId: string): undefined | string {
+  selectRequiredOption(optionIdx: number, attrId: string): void {
     if (optionIdx >= this.requiredOptions.length)
       throw new Error('There is no option at this index.');
     if (this.isSelectableAttribute(optionIdx, attrId)) {
       this.requiredOptions[optionIdx].selectedAttributeId = attrId;
-      if (this.requiredOptions.length - 1 === optionIdx) {
-        return this.printRequiredOptionCombination();
-      }
-      return undefined;
     }
     throw new Error('This attribute is not selectable.');
   }
@@ -91,15 +87,11 @@ export default class ProductInfo {
    * @param attrId 속성 ID
    * @returns 선택된 속성의 조합 문자열 또는 undefined
    */
-  selectExtraOption(optionIdx: number, attrId: string): undefined | string {
+  selectExtraOption(optionIdx: number, attrId: string): void {
     if (optionIdx >= this.extraOptions.length)
       throw new Error('There is no option at this index.');
     if (this.isSelectableAttribute(optionIdx, attrId)) {
       this.extraOptions[optionIdx].selectedAttributeId = attrId;
-      if (this.extraOptions.length - 1 === optionIdx) {
-        return this.printExtraOptionCombination();
-      }
-      return undefined;
     }
     throw new Error('This attribute is not selectable.');
   }
@@ -110,17 +102,29 @@ export default class ProductInfo {
    * @example
    * "색상 : 검정 / 사이즈 : 105 /"
    */
-  printRequiredOptionCombination(): string {
-    let combination = '';
+  printRequiredOptionCombination(): {
+    optionString: string;
+    translatedOptionString: string;
+  } {
+    let optionString = '';
+    let translatedOptionString = '';
+
     this.requiredOptions.forEach(option => {
       const selectedAttribute = option.attributes?.find(
         attr => attr.id === option.selectedAttributeId
       );
-      combination = combination.concat(
-        `${option.translatedTitle} (${option.title}) : ${selectedAttribute?.translatedName} (${selectedAttribute?.name}) / `
+      optionString = optionString.concat(
+        ` ${option.title} : ${selectedAttribute?.name} / `
+      );
+      translatedOptionString = translatedOptionString.concat(
+        ` (${option.translatedTitle}) : ${selectedAttribute?.translatedName}  / `
       );
     });
-    return combination;
+
+    return {
+      optionString,
+      translatedOptionString,
+    };
   }
   /**
    * @description 선택된 선택 옵션의 조합을 출력
@@ -128,17 +132,29 @@ export default class ProductInfo {
    * @example
    * "추가구성품 : 안경닦이 /"
    */
-  printExtraOptionCombination(): string {
-    let combination = '';
+  printExtraOptionCombination(): {
+    optionString: string;
+    translatedOptionString: string;
+  } {
+    let optionString = '';
+    let translatedOptionString = '';
+
     this.extraOptions.forEach(option => {
       const selectedAttribute = option.attributes?.find(
         attr => attr.id === option.selectedAttributeId
       );
-      combination = combination.concat(
-        `${option.translatedTitle} (${option.title}) : ${selectedAttribute?.translatedName} (${selectedAttribute?.name}) / `
+      optionString = optionString.concat(
+        ` ${option.title} : ${selectedAttribute?.name} / `
+      );
+      translatedOptionString = translatedOptionString.concat(
+        ` (${option.translatedTitle}) : ${selectedAttribute?.translatedName}  / `
       );
     });
-    return combination;
+
+    return {
+      optionString,
+      translatedOptionString,
+    };
   }
 
   /**
