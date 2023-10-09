@@ -10,7 +10,7 @@ export default class ProductAttribute {
 
   price?: number;
 
-  convertedPrice?: number;
+  exchangedPrice?: number;
 
   imageURL?: string;
 
