@@ -212,6 +212,15 @@ export default class ProductInfo {
     );
   }
 
+  /**
+   * @description 모든 필수옵션의 선택 해제
+   */
+  clearRequiredOptionSelection(): void {
+    this.requiredOptions.forEach(option => {
+      option.selectedAttributeId = undefined;
+    });
+  }
+
   // * 가격과 관련된 메소드들=============================
   /**
    * @description 필수옵션의 가격
