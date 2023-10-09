@@ -254,6 +254,14 @@ export default class ProductInfo {
     return price;
   }
   /**
+   * @description 필수옵션의 가격
+   * @returns
+   * @throws 필수 옵션 중 선택되지 않은 옵션이 있을 때
+   */
+  getRequiredOptionExchangedPrice(): number {
+    return Math.ceil(this.getRequiredOptionPrice() * (this.currencyRate ?? 1));
+  }
+  /**
    * @description 선택옵션의 가격
    * @returns 선택옵션의 가격
    */
@@ -263,6 +271,56 @@ export default class ProductInfo {
       price += this.selectedExtraAttribute(idx)?.price ?? 0;
     });
     return price;
+  }
+  /**
+   * @description 선택옵션의 환율전용된 가격
+   * @returns 선택옵션의 가격
+   */
+  getExtraOptionExchangedPrice(): number {
+    return Math.ceil(this.getExtraOptionPrice() * (this.currencyRate ?? 1));
+  }
+
+  /**
+   * @description 새 환율을 상품과 옵션에 적용
+   * @param from
+   * @param to
+   * @param rate
+   */
+  setCurrencyRate(rate: number): void {
+    this.currencyRate = rate;
+    // exchangedPrice
+    this.exchangedPrice = {
+      defaultPrice: this.originPrice?.defaultPrice
+        ? Math.ceil(this.originPrice.defaultPrice * rate)
+        : undefined,
+      discountPrice: this.originPrice?.discountPrice
+        ? Math.ceil(this.originPrice.discountPrice * rate)
+        : undefined,
+      couponPrice: this.originPrice?.couponPrice
+        ? Math.ceil(this.originPrice.couponPrice * rate)
+        : undefined,
+    };
+    // exchangedLocalShippingCost
+    this.exchangedLocalShippingCost = this.localShippingCost
+      ? Math.ceil(this.localShippingCost * rate)
+      : undefined;
+
+    // requiredOption
+    this.requiredOptions.forEach(option => {
+      option.attributes?.forEach(attr => {
+        attr.exchangedPrice = attr.price
+          ? Math.ceil(attr.price * rate)
+          : undefined;
+      });
+    });
+    // extraOption
+    this.extraOptions.forEach(option => {
+      option.attributes?.forEach(attr => {
+        attr.exchangedPrice = attr.price
+          ? Math.ceil(attr.price * rate)
+          : undefined;
+      });
+    });
   }
 
   /**
