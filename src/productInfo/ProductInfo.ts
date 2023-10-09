@@ -75,12 +75,11 @@ export default class ProductInfo {
   selectRequiredOption(optionIdx: number, attrId: string): void {
     if (optionIdx >= this.requiredOptions.length)
       throw new Error('There is no option at this index.');
-    if (this.isSelectableAttribute(optionIdx, attrId)) {
-      this.requiredOptions[optionIdx].selectedAttributeId = attrId;
-    } else {
-
-    throw new Error('This attribute is not selectable.');
+    if (!this.isSelectableAttribute(optionIdx, attrId)) {
+      throw new Error('This attribute is not selectable.');
     }
+    this.requiredOptions[optionIdx].selectedAttributeId = attrId;
+    return;
   }
 
   /**
@@ -92,11 +91,11 @@ export default class ProductInfo {
   selectExtraOption(optionIdx: number, attrId: string): void {
     if (optionIdx >= this.extraOptions.length)
       throw new Error('There is no option at this index.');
-    if (this.isSelectableAttribute(optionIdx, attrId)) {
-      this.extraOptions[optionIdx].selectedAttributeId = attrId;
-    } else {
+    if (!this.isSelectableAttribute(optionIdx, attrId)) {
       throw new Error('This attribute is not selectable.');
     }
+    this.extraOptions[optionIdx].selectedAttributeId = attrId;
+    return;
   }
 
   /**
