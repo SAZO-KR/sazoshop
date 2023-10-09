@@ -219,6 +219,17 @@ export default class ProductInfo {
   }
 
   /**
+   * @description 해당 필수옵션의 선택 해제
+   * @param optionIdx 옵션 인덱스
+   * @throws 옵션 인덱스가 옵션 배열의 길이보다 크거나 같을 때
+   */
+  unselectRequiredOption(optionIdx: number): void {
+    if (optionIdx >= this.requiredOptions.length)
+      throw new Error('Out of index.');
+    this.requiredOptions[optionIdx].selectedAttributeId = undefined;
+  }
+
+  /**
    * @description 모든 필수옵션의 선택 해제
    */
   clearRequiredOptionSelection(): void {
