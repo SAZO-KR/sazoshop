@@ -1,4 +1,4 @@
-export type CartItem = {
+export type CartSchema = {
   id: string;
   productInfo: string;
   required: {

@@ -3,10 +3,16 @@ import {UserData} from '../user/User';
 export type OrderSchema = {
   uid?: string; // User.uid
   orderId?: string; // 주문번호
-  data: {
-    id: string; // 상품 id (prdInfo.hash())
-    quantity: number; // 수량 > 0
-    prdInfo: string; // 상품 정보  (JSON.stringify(prdInfo.toJSON()))
+  productInfo: string;
+  required: {
+    selectedOption: string;
+    translatedSelectedOption: string;
+    quantity: number;
+  }[];
+  extra: {
+    selectedOption: string;
+    translatedSelectedOption: string;
+    quantity: number;
   }[];
   additionalRequests?: string; // 추가 요청사항
   createdAt?: number; // Timestamp.now().toMillis() 서버측에서 생성
