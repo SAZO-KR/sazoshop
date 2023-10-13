@@ -1,5 +1,5 @@
 export type CartSchema = {
-  id: string;
+  id?: string;
   productInfo: string;
   required: {
     selectedOption: string;
