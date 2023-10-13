@@ -8,11 +8,13 @@ export type OrderSchema = {
     selectedOption: string;
     translatedSelectedOption: string;
     quantity: number;
+    price: number;
   }[];
   extra: {
     selectedOption: string;
     translatedSelectedOption: string;
     quantity: number;
+    price: number;
   }[];
   additionalRequests?: string; // 추가 요청사항
   createdAt?: number; // Timestamp.now().toMillis() 서버측에서 생성
