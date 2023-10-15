@@ -165,7 +165,9 @@ export default class ProductInfoBuilder {
     const SHA256 = require('crypto-js/sha256');
     const map = ProductInfoBuilder.arrayToMap(array);
     if (this.originTitle !== undefined)
-      this.prd.translatedTitle = map.get(SHA256(this.originTitle).toString());
+      this.prd.translatedTitle = map.get(
+        SHA256(this.prd.originTitle).toString()
+      );
 
     // 필수옵션 번역
     this.prd.requiredOptions.forEach((option, idx) => {
