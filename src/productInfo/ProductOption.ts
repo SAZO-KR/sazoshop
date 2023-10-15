@@ -25,14 +25,6 @@ export default class ProductOption {
   static fromJSON(data: any): ProductOption {
     const prdOption = Object.assign(new ProductOption(), data);
     prdOption.attributes = data.attributes.map(ProductAttribute.fromJSON);
-    // null safety ok
-    prdOption.prevOption = data.prevOption
-      ? ProductOption.fromJSON(data.prevOption)
-      : undefined;
-    // null safety oks
-    prdOption.nextOption = data.nextOption
-      ? ProductOption.fromJSON(data.nextOption)
-      : undefined;
     return prdOption;
   }
 }

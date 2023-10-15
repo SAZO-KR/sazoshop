@@ -357,10 +357,13 @@ export default class ProductInfo {
    */
   static fromJSON(data: any): ProductInfo {
     const productInfo = Object.assign(new ProductInfo(), data);
-    if (data.options !== undefined)
-      productInfo.options = data.options.map(ProductOption.fromJSON);
-    if (data.optionPriceMap !== undefined)
-      productInfo.optionPriceMap = new Map(data.optionPriceMap);
+    if (data.requiredOptions !== undefined)
+      productInfo.requiredOptions = data.requiredOptions.map(
+        ProductOption.fromJSON
+      );
+    if (data.extraOptions !== undefined)
+      productInfo.extraOptions = data.extraOptions.map(ProductOption.fromJSON);
+
     return productInfo;
   }
 
