@@ -1,19 +1,12 @@
 import {
-  ProductInfo,
-  ProductInfoBuilder,
-  ProductOption,
-  ProductOptionBuilder,
-  ProductAttribute,
-  ProductAttributeBuilder,
-} from './productInfo';
-import {UserData} from './user/User';
-import {OrderSchema} from './order/OrderSchema';
-import {CartSchema} from './cart/CartSchema';
-import {
   FincodeCardRegisterRequestSchema,
   FincodeCardRegsiterResponseSchema,
+} from './Card';
+import {
   FincodeCustomerRegisterRequestSchema,
   FincodeCustomerRegisterResponseSchema,
+} from './Customer';
+import {
   PaymentRegisterRequestSchema,
   SharedResponseSchema,
   PaymentRegisterResponseSchema,
@@ -21,18 +14,9 @@ import {
   CheckoutResponseSchema,
   SalesConfirmationRequestSchema,
   PaymentConfirmationResponseSchema,
-} from './fincode';
+} from './Payment';
 
 export {
-  ProductInfo,
-  ProductInfoBuilder,
-  ProductOption,
-  ProductOptionBuilder,
-  ProductAttribute,
-  ProductAttributeBuilder,
-  UserData,
-  OrderSchema,
-  CartSchema,
   FincodeCardRegisterRequestSchema,
   FincodeCardRegsiterResponseSchema,
   FincodeCustomerRegisterRequestSchema,
