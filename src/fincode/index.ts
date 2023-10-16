@@ -1,10 +1,7 @@
+import {CardRegisterRequestSchema, CardRegsiterResponseSchema} from './Card';
 import {
-  FincodeCardRegisterRequestSchema,
-  FincodeCardRegsiterResponseSchema,
-} from './Card';
-import {
-  FincodeCustomerRegisterRequestSchema,
-  FincodeCustomerRegisterResponseSchema,
+  CustomerRegisterRequestSchema,
+  CustomerRegisterResponseSchema,
 } from './Customer';
 import {
   PaymentRegisterRequestSchema,
@@ -17,12 +14,12 @@ import {
 } from './Payment';
 
 export {
-  FincodeCardRegisterRequestSchema,
-  FincodeCardRegsiterResponseSchema,
-  FincodeCustomerRegisterRequestSchema,
-  FincodeCustomerRegisterResponseSchema,
-  PaymentRegisterRequestSchema,
+  CardRegisterRequestSchema,
+  CardRegsiterResponseSchema,
+  CustomerRegisterRequestSchema,
+  CustomerRegisterResponseSchema,
   SharedResponseSchema,
+  PaymentRegisterRequestSchema,
   PaymentRegisterResponseSchema,
   CheckoutRequestSchema,
   CheckoutResponseSchema,

@@ -1,4 +1,4 @@
-export type FincodeCustomerRegisterRequestSchema = {
+export type CustomerRegisterRequestSchema = {
   id?: string; // 顧客ID, 문자열, 1에서 60자 사이
   name?: string; // 顧客名, 문자열, 1에서 384자 사이
   email?: string; // 顧客メールアドレス, 문자열, 1에서 254자 사이
@@ -13,7 +13,7 @@ export type FincodeCustomerRegisterRequestSchema = {
   addr_state?: string; // カード顧客の請求書住所의 州または都道府県コード, 문자열, 1에서 3자 사이
 };
 
-export type FincodeCustomerRegisterResponseSchema = {
+export type CustomerRegisterResponseSchema = {
   id: string; // 顧客ID
   name: string; // 顧客名
   email: string; // 顧客メールアドレス

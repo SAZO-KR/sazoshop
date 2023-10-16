@@ -1,9 +1,9 @@
-export type FincodeCardRegisterRequestSchema = {
+export type CardRegisterRequestSchema = {
   default_flag: '1' | '0'; // デフォルトフラグ 1:ON 0:OFF, 문자열, 1 글자, 필수
   token: string; // トークン（fincodeJSのカードトークン発行より返却される値）, 문자열, 1에서 512자 사이, 필수
 };
 
-export type FincodeCardRegsiterResponseSchema = {
+export type CardRegsiterResponseSchema = {
   customer_id: string; // 顧客ID, 문자열, 1에서 60자 사이
   id: string; // カードID, 문자열, 고정된 길이 25자
   default_flag: '1' | '0'; // デフォルトフラグ 1:ON 0:OFF, 문자열, 1 글자
