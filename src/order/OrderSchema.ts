@@ -10,7 +10,7 @@ export type OrderSchema = {
   createdAt?: number; // Timestamp.now().toMillis() 서버측에서 생성
   updatedAt?: number; // Timestamp.now().toMillis() 서버측에서 생성
   state?: 'PENDING' | 'APPROVE' | 'REJECT' | 'SHIPPING' | 'SHIPPED';
-  // 배송 정보 클라이언트측에서 입력
+  // 배송 정보 클라이언트측에서 입력 (택배사에 전달할 내용)
   deliveryInfo?: {
     recipientName: string; // 수령인 이름
     recipientPhoneNumber: string; // 수령인 전화번호
@@ -18,15 +18,13 @@ export type OrderSchema = {
     address: string;
     addressDetail: string;
     shippingDate?: number; // 발송일
-    shippedDate?: number; // 도착일 
+    shippedDate?: number; // 배송 완료일
     shippingMemo?: string; // 배송 메모
-
   };
-  // 배송 이력
-  deliveryHistory?: DeliverySchema[];
+  deliveryHistory?: DeliverySchema[]; // 배송 이력 (택배사로부터 받는 정보)
   // 결제 정보 클라이언트측에서 부분적으로 입력
   paymentInfo?: {
-    method?: 'CARD';
+    method?: 'CARD' | 'Applepay' | 'Konbini' | 'Paypay';
     cardInfo?: {
       cardNumber?: string;
       cardExpiry?: string;
