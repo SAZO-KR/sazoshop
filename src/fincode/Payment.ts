@@ -6,7 +6,7 @@ export type PaymentRegisterRequestSchema = {
   id?: string; // 取引毎にユニークな値を指定してください。未指定の場合、fincode側で作成して返却します。
   job_code: string; // 処理区分 - 처리 유형 (예: CHECK, AUTH, CAPTURE)
   amount?: string; // 利用金額 - 사용 금액
-  tax: string; // 税送料 - 세금 및 운임
+  tax?: string; // 税送料 - 세금 및 운임
   client_field_1?: string; // 自由項目1 - 사용자 정의 필드 1
   client_field_2?: string; // 自由項目2 - 사용자 정의 필드 2
   client_field_3?: string; // 自由項목3 - 사용자 정의 필드 3

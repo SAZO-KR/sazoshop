@@ -6,7 +6,7 @@ import {
   ProductAttribute,
   ProductAttributeBuilder,
 } from './productInfo';
-import {UserData} from './user/User';
+import {UserSchema} from './user/UserSchema';
 import {OrderSchema} from './order/OrderSchema';
 import {CartSchema} from './cart/CartSchema';
 import {
@@ -30,7 +30,7 @@ export {
   ProductOptionBuilder,
   ProductAttribute,
   ProductAttributeBuilder,
-  UserData,
+  UserSchema,
   OrderSchema,
   CartSchema,
   CardRegisterRequestSchema,

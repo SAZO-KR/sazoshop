@@ -1,4 +1,4 @@
-export type UserData = {
+export type UserSchema = {
   [key: string]: string | boolean | undefined;
   uid?: string;
   firstName?: string;
