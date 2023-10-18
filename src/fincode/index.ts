@@ -1,4 +1,8 @@
-import {CardRegisterRequestSchema, CardRegsiterResponseSchema} from './Card';
+import {
+  CardRegisterRequestSchema,
+  CardRegsiterResponseSchema,
+  CardSchema,
+} from './Card';
 import {
   CustomerRegisterRequestSchema,
   CustomerRegisterResponseSchema,
@@ -17,6 +21,7 @@ import {
 export {
   CardRegisterRequestSchema,
   CardRegsiterResponseSchema,
+  CardSchema,
   CustomerRegisterRequestSchema,
   CustomerRegisterResponseSchema,
   SharedResponseSchema,

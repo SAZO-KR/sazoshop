@@ -22,6 +22,7 @@ import {
   SalesConfirmationRequestSchema,
   PaymentConfirmationResponseSchema,
   Fincode,
+  CardSchema,
 } from './fincode';
 
 export {
@@ -36,6 +37,7 @@ export {
   CartSchema,
   CardRegisterRequestSchema,
   CardRegsiterResponseSchema,
+  CardSchema,
   CustomerRegisterRequestSchema,
   CustomerRegisterResponseSchema,
   SharedResponseSchema,
