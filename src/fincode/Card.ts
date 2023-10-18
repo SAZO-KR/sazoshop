@@ -34,3 +34,17 @@ export type CardRegsiterResponseSchema = {
    */
   brand: '' | 'VISA' | 'MASTER' | 'JCB' | 'AMEX' | 'DINERS';
 };
+
+export type CardSchema = {
+  customer_id: string; // 顧客ID
+  default_flag: '1' | '0'; // デフォルトカードフラグ
+  card_no: string;
+  expire: string;
+  holder_name?: string; // カード名義人
+  security_code?: string;
+  card_no_hash?: string;
+  created?: string;
+  updated?: string;
+  type?: string;
+  brand?: string;
+};

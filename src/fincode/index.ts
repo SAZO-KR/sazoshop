@@ -3,6 +3,7 @@ import {
   CustomerRegisterRequestSchema,
   CustomerRegisterResponseSchema,
 } from './Customer';
+import Fincode from './Fincode';
 import {
   PaymentRegisterRequestSchema,
   SharedResponseSchema,
@@ -25,4 +26,5 @@ export {
   CheckoutResponseSchema,
   SalesConfirmationRequestSchema,
   PaymentConfirmationResponseSchema,
+  Fincode,
 };

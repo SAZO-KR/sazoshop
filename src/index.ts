@@ -21,6 +21,7 @@ import {
   CheckoutResponseSchema,
   SalesConfirmationRequestSchema,
   PaymentConfirmationResponseSchema,
+  Fincode,
 } from './fincode';
 
 export {
@@ -44,4 +45,5 @@ export {
   CheckoutResponseSchema,
   SalesConfirmationRequestSchema,
   PaymentConfirmationResponseSchema,
+  Fincode,
 };
