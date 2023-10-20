@@ -99,7 +99,7 @@ export type AuthorizeResponseSchema = {
 /**
  * @description 매출 확정 요청 스키마
  */
-export type SalesConfirmationRequestSchema = {
+export type CaptureRequestSchema = {
   pay_type: string; // 決済種別 - Card, Applepay, Paypay 중 하나여야 함
   access_id: string; // 取引ID - 24자 이내의 문자열
   method?: string; // 支払方法 - 1(一括), 2(분할), 5(리보) 중 하나여야 함
@@ -109,4 +109,4 @@ export type SalesConfirmationRequestSchema = {
 /**
  * @description 매출 확정 응답 스키마
  */
-export type PaymentConfirmationResponseSchema = SharedResponseSchema;
+export type CaptureResponseSchema = SharedResponseSchema;
