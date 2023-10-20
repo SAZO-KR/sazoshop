@@ -4,7 +4,7 @@ import {CardSchema} from './Card';
 
 export default class Fincode {
   private static instance: Fincode;
-  config: {
+  private config: {
     api: {
       host: string;
       context: string;
@@ -77,7 +77,9 @@ export default class Fincode {
    * @description カード情報を登録する
    * @param cardInfo カード情報
    */
-  async registerCard(cardInfo: CardSchema) {
+  async registerCard(
+    cardInfo: CardSchema
+  ): Promise<CardSchema & {id?: string}> {
     const endpoint = `${this.config.api.host}${this.config.api.context}/customers/${cardInfo.customer_id}/cards`;
     // Request
     const res = await this.request(endpoint, 'POST', cardInfo);
