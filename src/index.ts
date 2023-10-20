@@ -11,7 +11,7 @@ import {OrderSchema} from './order/OrderSchema';
 import {CartSchema} from './cart/CartSchema';
 import {
   CardRegisterRequestSchema,
-  CardRegsiterResponseSchema,
+  CardRegisterResponseSchema,
   CustomerRegisterRequestSchema,
   CustomerRegisterResponseSchema,
   SharedResponseSchema,
@@ -36,7 +36,7 @@ export {
   OrderSchema,
   CartSchema,
   CardRegisterRequestSchema,
-  CardRegsiterResponseSchema,
+  CardRegisterResponseSchema,
   CardSchema,
   CustomerRegisterRequestSchema,
   CustomerRegisterResponseSchema,

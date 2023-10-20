@@ -1,6 +1,6 @@
 import {
   CardRegisterRequestSchema,
-  CardRegsiterResponseSchema,
+  CardRegisterResponseSchema,
   CardSchema,
 } from './Card';
 import {
@@ -20,7 +20,7 @@ import {
 
 export {
   CardRegisterRequestSchema,
-  CardRegsiterResponseSchema,
+  CardRegisterResponseSchema,
   CardSchema,
   CustomerRegisterRequestSchema,
   CustomerRegisterResponseSchema,
