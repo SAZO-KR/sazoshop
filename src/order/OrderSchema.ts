@@ -3,9 +3,17 @@ import {DeliverySchema} from '../delivery/DeliverySchema';
 import {UserSchema} from '../user/UserSchema';
 
 export type OrderSchema = {
+  [key: string]:
+    | string
+    | number
+    | undefined
+    | object
+    | CartSchema[]
+    | DeliverySchema[]
+    | UserSchema;
   uid?: string; // User.uid
   orderId?: string; // 주문번호
-  data: CartSchema[];
+  data?: CartSchema[];
   additionalRequests?: string; // 추가 요청사항
   createdAt?: number; // Timestamp.now().toMillis() 서버측에서 생성
   updatedAt?: number; // Timestamp.now().toMillis() 서버측에서 생성
