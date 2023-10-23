@@ -21,6 +21,7 @@ export type OrderSchema = {
   // 배송 정보 클라이언트측에서 입력 (택배사에 전달할 내용)
   deliveryInfo?: {
     recipientName: string; // 수령인 이름
+    recipientNameKana: string; // 수령인 이름
     recipientPhoneNumber: string; // 수령인 전화번호
     postCode: string;
     address: string;

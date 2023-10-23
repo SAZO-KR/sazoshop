@@ -9,6 +9,7 @@ export type UserSchema = {
   phoneNumber?: string;
   email?: string;
   emailVerified?: boolean;
+  hasAgreedToPolicy?: boolean;
   displayName?: string;
   photoURL?: string;
   // 주소
