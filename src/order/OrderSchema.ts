@@ -29,6 +29,7 @@ export type OrderSchema = {
     shippingDate?: number; // 발송일
     shippedDate?: number; // 배송 완료일
     shippingMemo?: string; // 배송 메모
+    shippingType?: string; // 배송편 (배, 비행기 등)
   };
   deliveryHistory?: DeliverySchema[]; // 배송 이력 (택배사로부터 받는 정보)
   // 결제 정보 클라이언트측에서 부분적으로 입력
