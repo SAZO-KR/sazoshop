@@ -23,6 +23,8 @@ import {
   CaptureResponseSchema,
   Fincode,
   CardSchema,
+  CustomerGetListRequestSchema,
+  CustomerGetListResponseSchema,
 } from './fincode';
 
 export {
@@ -39,6 +41,8 @@ export {
   CardRegisterResponseSchema,
   CardSchema,
   CustomerRegisterRequestSchema,
+  CustomerGetListRequestSchema,
+  CustomerGetListResponseSchema,
   CustomerSchema,
   SharedResponseSchema,
   PaymentRegisterRequestSchema,

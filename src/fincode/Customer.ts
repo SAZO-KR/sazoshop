@@ -13,6 +13,45 @@ export type CustomerRegisterRequestSchema = {
   addr_state?: string; // カード顧客の請求書住所의 州または都道府県コード, 문자열, 1에서 3자 사이
 };
 
+export type CustomerGetListRequestSchema = {
+  /** 1회에 가져올 데이터의 수 (기본값: 10) */
+  limit?: number;
+
+  /** 페이지 번호 (기본값: 1) */
+  page?: number;
+
+  /** 총 항목 수만을 가져올지 여부를 결정하는 플래그 (기본값: false) */
+  count_only?: boolean;
+
+  /** 정렬 순서 (가능한 값: 'id', 'name', 'email', 'created', 'updated') */
+  sort?: 'id' | 'name' | 'email' | 'created' | 'updated' | null;
+
+  /** 고객 ID (1 ~ 60자) */
+  id?: string;
+
+  /** 고객 이름 (1 ~ 384자) */
+  name?: string;
+
+  /** 고객 이메일 주소 (1 ~ 254자) */
+  email?: string;
+
+  /** 생성 날짜 범위의 시작값 (YYYY/MM/DD 형식) */
+  created_from?: string;
+
+  /** 생성 날짜 범위의 종료값 (YYYY/MM/DD 형식) */
+  created_to?: string;
+};
+
+export type CustomerGetListResponseSchema = {
+  totla_count?: number;
+  last_page?: number;
+  current_page?: number;
+  limit?: number;
+  link_next?: string;
+  link_previous?: string;
+  list?: CustomerSchema[];
+};
+
 export type CustomerSchema = {
   id: string; // 顧客ID
   name: string; // 顧客名
