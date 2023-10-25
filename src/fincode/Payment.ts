@@ -70,7 +70,7 @@ export type PaymentRegisterResponseSchema = {
 /**
  * @description 결제 실행 요청 스키마
  */
-export type AuthorizeRequestSchema = {
+export type PaymentAuthorizeRequestSchema = {
   pay_type: string; // 決済種別 - 결제 유형 (예: Card, Applepay, Konbini, Paypay)
   access_id: string; // 取引ID - 거래 ID
   token?: string; // トークン（fincodeJSのカードトークン発行より返却される値） - 토큰 (조건부 필수: 토큰을 입력하거나 customer_id와 card_id를 입력해야 함)
@@ -84,7 +84,7 @@ export type AuthorizeRequestSchema = {
 /**
  * @description 결제 실행 응답 스키마
  */
-export type AuthorizeResponseSchema = {
+export type PaymentAuthorizeResponseSchema = {
   merchant_name: string; // 3Dセキュア表示用店舗名 - 3D Secure 표시용 가게 이름
   send_url: string; // エンドポイントURL - 엔드포인트 URL
   subscription_id: string; // サブスクリプションID - 구독 ID (1에서 25자까지의 문자열)
@@ -99,7 +99,7 @@ export type AuthorizeResponseSchema = {
 /**
  * @description 매출 확정 요청 스키마
  */
-export type CaptureRequestSchema = {
+export type PaymentCaptureRequestSchema = {
   pay_type: string; // 決済種別 - Card, Applepay, Paypay 중 하나여야 함
   access_id: string; // 取引ID - 24자 이내의 문자열
   method?: string; // 支払方法 - 1(一括), 2(분할), 5(리보) 중 하나여야 함
@@ -109,4 +109,4 @@ export type CaptureRequestSchema = {
 /**
  * @description 매출 확정 응답 스키마
  */
-export type CaptureResponseSchema = SharedResponseSchema;
+export type PaymentCaptureResponseSchema = SharedResponseSchema;

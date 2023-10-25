@@ -15,10 +15,10 @@ import {
   PaymentRegisterRequestSchema,
   SharedResponseSchema,
   PaymentRegisterResponseSchema,
-  AuthorizeRequestSchema,
-  AuthorizeResponseSchema,
-  CaptureRequestSchema,
-  CaptureResponseSchema,
+  PaymentAuthorizeRequestSchema,
+  PaymentAuthorizeResponseSchema,
+  PaymentCaptureRequestSchema,
+  PaymentCaptureResponseSchema,
 } from './Payment';
 
 export {
@@ -33,9 +33,9 @@ export {
   SharedResponseSchema,
   PaymentRegisterRequestSchema,
   PaymentRegisterResponseSchema,
-  AuthorizeRequestSchema,
-  AuthorizeResponseSchema,
-  CaptureRequestSchema,
-  CaptureResponseSchema,
+  PaymentAuthorizeRequestSchema,
+  PaymentAuthorizeResponseSchema,
+  PaymentCaptureRequestSchema,
+  PaymentCaptureResponseSchema,
   Fincode,
 };
