@@ -14,10 +14,10 @@ export type CustomerRegisterRequestSchema = {
 };
 
 export type CustomerGetListRequestSchema = {
-  /** 1회에 가져올 데이터의 수 (기본값: 10) */
-  limit?: number;
-  /** 페이지 번호 (기본값: 1) */
-  page?: number;
+  /** 1회에 가져올 데이터의 수 (기본값: '10') */
+  limit?: string;
+  /** 페이지 번호 (기본값: '1') */
+  page?: string;
   /** 총 항목 수만을 가져올지 여부를 결정하는 플래그 (기본값: false) */
   count_only?: boolean;
   /** 정렬 순서 (가능한 값: 'id', 'name', 'email', 'created', 'updated') */
