@@ -14,10 +14,11 @@ export type OrderSchema = {
   uid?: string; // User.uid
   orderId?: string; // 주문번호
   data?: CartSchema[];
+  totalPrice?: number; // 총 가격
   additionalRequests?: string; // 추가 요청사항
   createdAt?: number; // Timestamp.now().toMillis() 서버측에서 생성
   updatedAt?: number; // Timestamp.now().toMillis() 서버측에서 생성
-  state?: 'PENDING' | 'APPROVE' | 'REJECT' | 'SHIPPING' | 'SHIPPED';
+  state?: 'PENDING' | 'APPROVE' | 'REJECT' | 'SHIPPING' | 'SHIPPED'; // 승인대기/승인/거절/배송중/배송완료
   // 배송 정보 클라이언트측에서 입력 (택배사에 전달할 내용)
   deliveryInfo?: {
     recipientName: string; // 수령인 이름
@@ -34,6 +35,7 @@ export type OrderSchema = {
   deliveryHistory?: DeliverySchema[]; // 배송 이력 (택배사로부터 받는 정보)
   // 결제 정보 클라이언트측에서 부분적으로 입력
   paymentInfo?: {
+    state?: 'PENDING' | 'AUTHORIZED' | 'REJECTED' | 'CAPTURED' | 'FAILED'; // 승인대기/승인/거절/결제완료/결제실패
     method?: 'CARD' | 'Applepay' | 'Konbini' | 'Paypay';
     cardInfo?: {
       cardNumber?: string;

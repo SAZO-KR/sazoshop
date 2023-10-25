@@ -13,7 +13,7 @@ export type CustomerRegisterRequestSchema = {
   addr_state?: string; // カード顧客の請求書住所의 州または都道府県コード, 문자열, 1에서 3자 사이
 };
 
-export type CustomerRegisterResponseSchema = {
+export type CustomerSchema = {
   id: string; // 顧客ID
   name: string; // 顧客名
   email: string; // 顧客メールアドレス

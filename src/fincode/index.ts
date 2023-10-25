@@ -3,10 +3,7 @@ import {
   CardRegisterResponseSchema,
   CardSchema,
 } from './Card';
-import {
-  CustomerRegisterRequestSchema,
-  CustomerRegisterResponseSchema,
-} from './Customer';
+import {CustomerRegisterRequestSchema, CustomerSchema} from './Customer';
 import Fincode from './Fincode';
 import {
   PaymentRegisterRequestSchema,
@@ -23,7 +20,7 @@ export {
   CardRegisterResponseSchema,
   CardSchema,
   CustomerRegisterRequestSchema,
-  CustomerRegisterResponseSchema,
+  CustomerSchema,
   SharedResponseSchema,
   PaymentRegisterRequestSchema,
   PaymentRegisterResponseSchema,
