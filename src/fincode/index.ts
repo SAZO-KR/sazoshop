@@ -8,6 +8,7 @@ import {
   CustomerGetListResponseSchema,
   CustomerRegisterRequestSchema,
   CustomerSchema,
+  CustomerUpdateRequestSchema,
 } from './Customer';
 import Fincode from './Fincode';
 import {
@@ -27,6 +28,7 @@ export {
   CustomerRegisterRequestSchema,
   CustomerGetListRequestSchema,
   CustomerGetListResponseSchema,
+  CustomerUpdateRequestSchema,
   CustomerSchema,
   SharedResponseSchema,
   PaymentRegisterRequestSchema,

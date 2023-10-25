@@ -16,28 +16,20 @@ export type CustomerRegisterRequestSchema = {
 export type CustomerGetListRequestSchema = {
   /** 1회에 가져올 데이터의 수 (기본값: 10) */
   limit?: number;
-
   /** 페이지 번호 (기본값: 1) */
   page?: number;
-
   /** 총 항목 수만을 가져올지 여부를 결정하는 플래그 (기본값: false) */
   count_only?: boolean;
-
   /** 정렬 순서 (가능한 값: 'id', 'name', 'email', 'created', 'updated') */
   sort?: 'id' | 'name' | 'email' | 'created' | 'updated' | null;
-
   /** 고객 ID (1 ~ 60자) */
   id?: string;
-
   /** 고객 이름 (1 ~ 384자) */
   name?: string;
-
   /** 고객 이메일 주소 (1 ~ 254자) */
   email?: string;
-
   /** 생성 날짜 범위의 시작값 (YYYY/MM/DD 형식) */
   created_from?: string;
-
   /** 생성 날짜 범위의 종료값 (YYYY/MM/DD 형식) */
   created_to?: string;
 };
@@ -50,6 +42,31 @@ export type CustomerGetListResponseSchema = {
   link_next?: string;
   link_previous?: string;
   list?: CustomerSchema[];
+};
+
+export type CustomerUpdateRequestSchema = {
+  /** 고객 이름 (1 ~ 384자) */
+  name?: string;
+  /** 고객 이메일 주소 (1 ~ 254자) */
+  email?: string;
+  /** 전화번호의 국가 코드 (1 ~ 3자) */
+  phone_cc?: string;
+  /** 전화번호 (1 ~ 15자) */
+  phone_no?: string;
+  /** 카드 고객의 청구서 주소 도시 (1 ~ 50자) */
+  addr_city?: string;
+  /** 국가 코드 (1 ~ 3자) */
+  addr_country?: string;
+  /** 카드 고객의 청구서 주소 지역 부분의 첫 번째 줄 (1 ~ 50자) */
+  addr_line_1?: string;
+  /** 카드 고객의 청구서 주소 지역 부분의 두 번째 줄 (1 ~ 50자) */
+  addr_line_2?: string;
+  /** 카드 고객의 청구서 주소 지역 부분의 세 번째 줄 (1 ~ 50자) */
+  addr_line_3?: string;
+  /** 카드 고객의 청구서 주소 우편번호 (1 ~ 16자) */
+  addr_post_code?: string;
+  /** 카드 고객의 청구서 주소의 주 또는 도/도도부현 코드 (1 ~ 3자) */
+  addr_state?: string;
 };
 
 export type CustomerSchema = {
