@@ -10,10 +10,10 @@ export type PaymentRegisterRequestSchema = {
   client_field_1?: string; // 自由項目1 - 사용자 정의 필드 1
   client_field_2?: string; // 自由項目2 - 사용자 정의 필드 2
   client_field_3?: string; // 自由項목3 - 사용자 정의 필드 3
-  tds_type: string; // 3Dセキュア利用種別 - 3D 보안 사용 유형 (0 또는 2)
+  tds_type?: string; // 3Dセキュア利用種別 - 3D 보안 사용 유형 (0 또는 2)
   td_tenant_name?: string; // 3Dセキュア表示店舗名 - 3D 보안 표시 상점 이름
   subscription_id?: string; // サブスクリプションID - 구독 ID
-  tds2_type: string; // 3Dセキュア2.0非対応時の動作 - 3D 보안 2.0 지원되지 않을 때의 동작 (2 또는 3)
+  tds2_type?: string; // 3Dセキュア2.0非対応時の動作 - 3D 보안 2.0 지원되지 않을 때의 동작 (2 또는 3)
 };
 
 /**
