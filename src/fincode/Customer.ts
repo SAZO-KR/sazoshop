@@ -18,8 +18,8 @@ export type CustomerGetListRequestSchema = {
   limit?: string;
   /** 페이지 번호 (기본값: '1') */
   page?: string;
-  /** 총 항목 수만을 가져올지 여부를 결정하는 플래그 (기본값: false) */
-  count_only?: boolean;
+  /** 총 항목 수만을 가져올지 여부를 결정하는 플래그 (기본값: 'false') */
+  count_only?: string;
   /** 정렬 순서 (가능한 값: 'id', 'name', 'email', 'created', 'updated') */
   sort?: 'id' | 'name' | 'email' | 'created' | 'updated' | null;
   /** 고객 ID (1 ~ 60자) */
