@@ -18,10 +18,12 @@ export default class Fincode {
     apiKey: string;
   };
 
-  private constructor(publicKey: string) {
+  private constructor(publicKey: string, isTest = false) {
     this.config = {
       api: {
-        host: 'https://api.test.fincode.jp/',
+        host: isTest
+          ? 'https://api.test.fincode.jp/'
+          : 'https://api.fincode.jp/',
         context: 'v1',
       },
       headers: {
