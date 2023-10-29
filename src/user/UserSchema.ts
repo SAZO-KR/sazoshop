@@ -3,12 +3,12 @@ import {PointSchema} from './PointSchema';
 
 export type UserSchema = {
   [key: string]: string | number | boolean | undefined | object[];
-  uid?: string;
+  uid: string;
   firstName?: string;
   lastName?: string;
   firstNameKana?: string;
   lastNameKana?: string;
-  birth?: string;
+  birthYear?: number;
   phoneNumber?: string;
   email?: string;
   emailVerified?: boolean;
