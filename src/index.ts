@@ -27,6 +27,7 @@ import {
   CustomerGetListResponseSchema,
   CustomerUpdateRequestSchema,
 } from './fincode';
+import {TariffCategorySchema, TariffItemSchema} from './tariff';
 
 export {
   ProductInfo,
@@ -54,4 +55,6 @@ export {
   PaymentCaptureRequestSchema,
   PaymentCaptureResponseSchema,
   Fincode,
+  TariffItemSchema,
+  TariffCategorySchema,
 };
