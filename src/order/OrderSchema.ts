@@ -1,5 +1,6 @@
 import {CartSchema} from '../cart/CartSchema';
 import {DeliverySchema} from '../delivery/DeliverySchema';
+import {CouponSchema, PointSchema} from '../user';
 import {UserSchema} from '../user/UserSchema';
 
 export type OrderSchema = {
@@ -14,7 +15,6 @@ export type OrderSchema = {
   uid?: string; // User.uid
   orderId?: string; // 주문번호
   data?: CartSchema[];
-  totalPrice?: number; // 총 가격
   additionalRequests?: string; // 추가 요청사항
   createdAt?: number; // Timestamp.now().toMillis() 서버측에서 생성
   updatedAt?: number; // Timestamp.now().toMillis() 서버측에서 생성
@@ -43,6 +43,15 @@ export type OrderSchema = {
       cardCVC?: string;
     };
   };
+  // 가격 정보
+  commission?: number; // 수수료
+  productPrice?: number; // 상품 가격
+  domesticShippingRates?: number; // 국내 배송비
+  internationalShippingRates?: number; // 국제 배송비
+  tariffRates?: number; // 관세
+  couponDiscount?: CouponSchema[]; // 쿠폰 할인
+  pointDiscount?: PointSchema[]; // 포인트 할인
+  totalPrice?: number; // 총 가격 (상품 가격 + 수수료 + 배송비 + 관세 - 쿠폰 할인 - 포인트 할인)
   // 주문자 정보
   userInfo?: UserSchema;
 };

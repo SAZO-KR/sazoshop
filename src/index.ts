@@ -28,6 +28,7 @@ import {
   CustomerUpdateRequestSchema,
 } from './fincode';
 import {TariffCategorySchema, TariffItemSchema} from './tariff';
+import {CouponSchema, PointSchema} from './user';
 
 export {
   ProductInfo,
@@ -37,6 +38,8 @@ export {
   ProductAttribute,
   ProductAttributeBuilder,
   UserSchema,
+  CouponSchema,
+  PointSchema,
   OrderSchema,
   CartSchema,
   CardRegisterRequestSchema,
