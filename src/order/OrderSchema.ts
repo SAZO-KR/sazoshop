@@ -21,8 +21,10 @@ export type OrderSchema = {
   state?: 'PENDING' | 'APPROVE' | 'REJECT' | 'SHIPPING' | 'SHIPPED'; // 승인대기/승인/거절/배송중/배송완료
   // 배송 정보 클라이언트측에서 입력 (택배사에 전달할 내용)
   deliveryInfo?: {
-    recipientName: string; // 수령인 이름
-    recipientNameKana: string; // 수령인 이름
+    recipientFirstName: string; // 수령인 이름
+    recipientLastName: string;
+    recipientFirstNameKana: string;
+    recipientLastNameKana: string;
     recipientPhoneNumber: string; // 수령인 전화번호
     postCode: string;
     address: string;
