@@ -36,9 +36,9 @@ export default class Fincode {
     };
   }
 
-  public static getInstance(publicKey: string): Fincode {
+  public static getInstance(publicKey: string, isTest = false): Fincode {
     if (!Fincode.instance) {
-      Fincode.instance = new Fincode(publicKey);
+      Fincode.instance = new Fincode(publicKey, isTest);
     }
 
     return Fincode.instance;
