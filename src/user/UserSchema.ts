@@ -3,7 +3,7 @@ import {CouponSchema} from './CouponSchema';
 import {PointSchema} from './PointSchema';
 
 export type UserSchema = {
-  [key: string]: string | number | boolean | undefined | object[];
+  [key: string]: string | number | boolean | undefined | object | object[];
   uid: string;
   firstName?: string;
   lastName?: string;
@@ -22,4 +22,10 @@ export type UserSchema = {
   coupons?: CouponSchema[];
   // 포인트
   points?: PointSchema[];
+  // 설정
+  settings: {
+    // 수신 동의
+    isAgreedToReceiveEmail?: boolean;
+    isAgreedToReceiveSMS?: boolean;
+  };
 };
