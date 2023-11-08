@@ -23,7 +23,7 @@ export type UserSchema = {
   // 포인트
   points?: PointSchema[];
   // 설정
-  settings: {
+  settings?: {
     // 수신 동의
     isAgreedToReceiveEmail?: boolean;
     isAgreedToReceiveSMS?: boolean;
