@@ -29,7 +29,8 @@ import {
 } from './fincode';
 import {TariffCategorySchema, TariffItemSchema} from './tariff';
 import {CouponSchema, PointSchema} from './user';
-import {SearchResponseSchema} from './search/SearchSchema';
+import {SearchResponseSchema} from './search/SearchResponseSchema';
+import {SearchResultItemSchema} from './search/SearchResultItemSchema';
 
 export {
   ProductInfo,
@@ -62,4 +63,5 @@ export {
   TariffItemSchema,
   TariffCategorySchema,
   SearchResponseSchema,
+  SearchResultItemSchema,
 };
