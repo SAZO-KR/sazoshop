@@ -39,5 +39,5 @@ export type SearchResponseSchema = {
       exchangePrice: number;
       pcMallUrl: string;
     }[];
-  };
+  }[];
 };
