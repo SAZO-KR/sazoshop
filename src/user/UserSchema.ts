@@ -13,10 +13,8 @@ export type UserSchema = {
   phoneNumber?: string;
   email?: string;
   emailVerified?: boolean;
-  hasAgreedToPolicy?: boolean;
   displayName?: string;
   photoURL?: string;
-  parentConsent: boolean; // 회원가입 시 부모 동의 여부
   // 주소
   addresses?: AddressSchema[];
   // 쿠폰
