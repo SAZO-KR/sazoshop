@@ -31,7 +31,7 @@ export type OrderSchema = {
   // 결제 정보 클라이언트측에서 부분적으로 입력
   paymentInfo?: {
     state?: 'PENDING' | 'AUTHORIZED' | 'REJECTED' | 'CAPTURED' | 'FAILED'; // 승인대기/승인/거절/결제완료/결제실패
-    method?: 'CARD' | 'Applepay' | 'Konbini' | 'Paypay';
+    method?: 'CARD' | 'APPLEPAY' | 'KONBINI' | 'PAYPAY' | 'GOOGLEPAY';
     cardInfo?: {
       cardNumber?: string;
       cardExpiry?: string;

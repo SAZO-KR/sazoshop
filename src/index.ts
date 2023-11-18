@@ -31,6 +31,7 @@ import {TariffCategorySchema, TariffItemSchema} from './tariff';
 import {CouponSchema, PointSchema} from './user';
 import {SearchResponseSchema} from './search/SearchResponseSchema';
 import {SearchResultItemSchema} from './search/SearchResultItemSchema';
+import {WishlistItemSchema} from './wishlist/WishlistSchema';
 
 export {
   ProductInfo,
@@ -64,4 +65,5 @@ export {
   TariffCategorySchema,
   SearchResponseSchema,
   SearchResultItemSchema,
+  WishlistItemSchema,
 };

@@ -1,5 +1,5 @@
 export type CartSchema = {
-  id?: string;
+  id?: string; // productInfo의 hash값
   productInfo: string;
   required: {
     selectedOption: string;
