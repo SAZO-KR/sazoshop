@@ -21,6 +21,14 @@ export type UserSchema = {
   coupons?: CouponSchema[];
   // 포인트
   points?: PointSchema[];
+  // 기본 결제 수단
+  defaultPaymentMethod?:
+    | 'Card'
+    | 'Applepay'
+    | 'Konbini'
+    | 'Paypay'
+    | 'Googlepay';
+
   // 설정
   settings?: {
     // 수신 동의
