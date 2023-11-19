@@ -33,9 +33,9 @@ export type OrderSchema = {
     state?: 'PENDING' | 'AUTHORIZED' | 'REJECTED' | 'CAPTURED' | 'FAILED'; // 승인대기/승인/거절/결제완료/결제실패
     method?: 'CARD' | 'APPLEPAY' | 'KONBINI' | 'PAYPAY' | 'GOOGLEPAY';
     cardInfo?: {
+      cardId: string;
       cardNumber?: string;
       cardExpiry?: string;
-      cardCVC?: string;
     };
   };
   // 가격 정보

@@ -36,6 +36,7 @@ export type CardRegisterResponseSchema = {
 };
 
 export type CardSchema = {
+  id: string; // カードID
   customer_id: string; // 顧客ID
   default_flag: '1' | '0'; // デフォルトカードフラグ
   card_no: string;
