@@ -88,6 +88,28 @@ export default class Fincode {
     return res.data;
   }
 
+  async authorizePayment(
+    pay_type: string,
+    access_id: string,
+    id: string, // order_id
+    card_no: string,
+    expire: string,
+    method = '1', // 一括
+    security_code?: string
+  ) {
+    const endpoint = `${this.config.api.host}${this.config.api.context}/payments/${id}`;
+    // Request
+    const res = await this.request(endpoint, 'PUT', {
+      pay_type,
+      access_id,
+      card_no,
+      expire,
+      method,
+      security_code,
+    });
+    return res.data;
+  }
+
   /// * Private Methods
   /**
    * @description Requestを送信する
