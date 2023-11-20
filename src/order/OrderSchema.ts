@@ -36,14 +36,7 @@ export type OrderSchema = {
       cardId: string;
       cardNumber?: string;
       cardExpiry?: string;
-      cardBrand?:
-        | 'VISA'
-        | 'MASTER'
-        | 'JCB'
-        | 'AMEX'
-        | 'MAESTRO'
-        | 'UNION'
-        | 'EXPRESS';
+      cardBrand?: string;
     };
   };
   // 가격 정보

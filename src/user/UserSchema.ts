@@ -24,14 +24,7 @@ export type UserSchema = {
   // 기본 결제 수단
   defaultPayment?: {
     method: 'Card' | 'Applepay' | 'Konbini' | 'Paypay' | 'Googlepay';
-    cardBrand?:
-      | 'VISA'
-      | 'MASTER'
-      | 'JCB'
-      | 'AMEX'
-      | 'MAESTRO'
-      | 'UNION'
-      | 'EXPRESS';
+    cardBrand?: string;
   };
   // 설정
   settings?: {
