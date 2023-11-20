@@ -24,7 +24,13 @@ export type UserSchema = {
   // 기본 결제 수단
   defaultPayment?: {
     method: 'Card' | 'Applepay' | 'Konbini' | 'Paypay' | 'Googlepay';
-    cardBrand?: string;
+    cardInfo?: {
+      cardId: string;
+      cardNumber?: string;
+      cardExpiry?: string;
+      cardBrand?: string;
+      cardHolderName?: string;
+    };
   };
   // 설정
   settings?: {

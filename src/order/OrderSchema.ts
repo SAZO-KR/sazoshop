@@ -37,6 +37,7 @@ export type OrderSchema = {
       cardNumber?: string;
       cardExpiry?: string;
       cardBrand?: string;
+      cardHolderName?: string;
     };
   };
   // 가격 정보
