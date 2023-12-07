@@ -6,7 +6,7 @@ type ProductCardSchema = {
   exchangedPrice: number; // 환율 적용 가격
   mallUrl: string; // 쇼핑몰 URL
   imageUrl: string; // 상품 이미지 URL
-  expectedshippingfee?: number; // 예상 배송비
+  expectedShippingFee?: number; // 예상 배송비
   starRating?: number; // 별점
   reviewCount?: number; // 리뷰 수
   priority?: number; // 우선순위
