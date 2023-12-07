@@ -5,6 +5,7 @@ import {
   ProductOptionBuilder,
   ProductAttribute,
   ProductAttributeBuilder,
+  ProductCardSchema,
 } from './productInfo';
 import {UserSchema} from './user/UserSchema';
 import {OrderSchema} from './order/OrderSchema';
@@ -34,6 +35,7 @@ import {SearchResultItemSchema} from './search/SearchResultItemSchema';
 import {WishlistItemSchema} from './wishlist/WishlistItemSchema';
 
 export {
+  ProductCardSchema,
   ProductInfo,
   ProductInfoBuilder,
   ProductOption,
