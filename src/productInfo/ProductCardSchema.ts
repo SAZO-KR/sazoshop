@@ -9,6 +9,7 @@ type ProductCardSchema = {
   expectedshippingfee?: number; // 예상 배송비
   starRating?: number; // 별점
   reviewCount?: number; // 리뷰 수
+  priority?: number; // 우선순위
 };
 
 export default ProductCardSchema;
