@@ -1,4 +1,5 @@
 type ProductCardSchema = {
+  id: number; // 상품 hash ID
   productName: string; // 상품명
   translatedProductName: string; // 번역된 상품명
   price: number; // 원래 가격
