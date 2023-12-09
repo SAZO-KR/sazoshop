@@ -91,9 +91,9 @@ export default class ProductInfo {
   selectExtraOption(optionIdx: number, attrId: string): void {
     if (optionIdx >= this.extraOptions.length)
       throw new Error('There is no option at this index.');
-    if (!this.isSelectableAttribute(optionIdx, attrId)) {
-      throw new Error('This attribute is not selectable.');
-    }
+    // if (!this.isSelectableAttribute(optionIdx, attrId)) {
+    //   throw new Error('This attribute is not selectable.');
+    // }
     this.extraOptions[optionIdx].selectedAttributeId = attrId;
     return;
   }
