@@ -91,9 +91,6 @@ export default class ProductInfo {
   selectExtraOption(optionIdx: number, attrId: string): void {
     if (optionIdx >= this.extraOptions.length)
       throw new Error('There is no option at this index.');
-    // if (!this.isSelectableAttribute(optionIdx, attrId)) {
-    //   throw new Error('This attribute is not selectable.');
-    // }
     this.extraOptions[optionIdx].selectedAttributeId = attrId;
     return;
   }
@@ -245,6 +242,15 @@ export default class ProductInfo {
     if (optionIdx >= this.requiredOptions.length)
       throw new Error('Out of index.');
     this.requiredOptions[optionIdx].selectedAttributeId = undefined;
+  }
+  /**
+   * @description 해당 선택옵션의 선택 해제
+   * @param optionIdx 옵션 인덱스
+   * @throws 옵션 인덱스가 옵션 배열의 길이보다 크거나 같을 때
+   */
+  unselectExtraOption(optionIdx: number): void {
+    if (optionIdx >= this.extraOptions.length) throw new Error('Out of index.');
+    this.extraOptions[optionIdx].selectedAttributeId = undefined;
   }
 
   /**
