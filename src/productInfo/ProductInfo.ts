@@ -139,15 +139,17 @@ export default class ProductInfo {
     let translatedOptionString = '';
 
     this.extraOptions.forEach(option => {
-      const selectedAttribute = option.attributes?.find(
-        attr => attr.id === option.selectedAttributeId
-      );
-      optionString = optionString.concat(
-        ` ${option.title} : ${selectedAttribute?.name} / `
-      );
-      translatedOptionString = translatedOptionString.concat(
-        ` (${option.translatedTitle}) : ${selectedAttribute?.translatedName}  / `
-      );
+      if (!option.selectedAttributeId) {
+        const selectedAttribute = option.attributes?.find(
+          attr => attr.id === option.selectedAttributeId
+        );
+        optionString = optionString.concat(
+          ` ${option.title} : ${selectedAttribute?.name} / `
+        );
+        translatedOptionString = translatedOptionString.concat(
+          ` (${option.translatedTitle}) : ${selectedAttribute?.translatedName}  / `
+        );
+      }
     });
 
     return {
