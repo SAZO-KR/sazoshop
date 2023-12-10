@@ -139,7 +139,7 @@ export default class ProductInfo {
     let translatedOptionString = '';
 
     this.extraOptions.forEach(option => {
-      if (!option.selectedAttributeId) {
+      if (option.selectedAttributeId) {
         const selectedAttribute = option.attributes?.find(
           attr => attr.id === option.selectedAttributeId
         );
