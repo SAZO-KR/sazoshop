@@ -1,4 +1,5 @@
 export type SearchResultItemSchema = {
+  id: string;
   productName: string;
   translatedProductName: string;
   maker: string;
