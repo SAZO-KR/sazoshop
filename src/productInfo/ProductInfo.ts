@@ -157,7 +157,40 @@ export default class ProductInfo {
       translatedOptionString,
     };
   }
+  /**
+   * @description 선택된 필수 옵션의 id를 출력
+   * @returns 선택된 필수 옵션의 id 배열
+   * @example
+   * ["1000x600","블랙프레임+블랙상판,1000x600"]
+   */
+  printSelectedRequiredOptionId(): string[] {
+    const idArray: string[] = [];
 
+    this.requiredOptions.forEach(option => {
+      const selectedAttribute = option.selectedAttributeId;
+      if (!selectedAttribute) throw new Error('selectedAttributeId not found');
+      idArray.push(selectedAttribute);
+    });
+
+    return idArray;
+  }
+  /**
+   * @description 선택된 선택 옵션의 id를 출력
+   * @returns 선택된 선택 옵션의 id 배열
+   * @example
+   * ["2357685496"]
+   */
+  printSelectedExtraOptionId(): string[] {
+    const idArray: string[] = [];
+
+    this.extraOptions.forEach(option => {
+      const selectedAttribute = option.selectedAttributeId;
+      if (!selectedAttribute) throw new Error('selectedAttributeId not found');
+      idArray.push(selectedAttribute);
+    });
+
+    return idArray;
+  }
   /**
    * @description 모든 필수옵션이 선택되었는 지 확인
    * @returns 모든 필수옵션이 선택되었는 지 여부
