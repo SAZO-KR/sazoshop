@@ -69,20 +69,12 @@ export default class ProductInfoBuilder {
     return this;
   }
 
-  originPrice(originPrice: {
-    defaultPrice?: number;
-    discountPrice?: number;
-    couponPrice?: number;
-  }) {
+  originPrice(originPrice: number) {
     this.prd.originPrice = originPrice;
     return this;
   }
 
-  exchangedPrice(exchangedPrice: {
-    defaultPrice?: number;
-    discountPrice?: number;
-    couponPrice?: number;
-  }) {
+  exchangedPrice(exchangedPrice: number) {
     this.prd.exchangedPrice = exchangedPrice;
     return this;
   }

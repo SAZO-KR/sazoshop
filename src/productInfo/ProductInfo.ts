@@ -37,17 +37,9 @@ export default class ProductInfo {
   toCurrency?: string; // 환율 목적지 통화 ex) JPY
   currencyRate?: number; // 환율 = toCurrency / fromCurrency
 
-  originPrice?: {
-    defaultPrice?: number;
-    discountPrice?: number;
-    couponPrice?: number;
-  }; // 원본 가격
+  originPrice?: number; // 원본 가격
 
-  exchangedPrice?: {
-    defaultPrice?: number;
-    discountPrice?: number;
-    couponPrice?: number;
-  }; // 환율 적용된 가격
+  exchangedPrice?: number; // 환율 적용된 가격
 
   localShippingCost?: number; // 국내 배송비
   exchangedLocalShippingCost?: number; // 환율 적용된 국내 배송비
@@ -348,17 +340,10 @@ export default class ProductInfo {
   setCurrencyRate(rate: number): void {
     this.currencyRate = rate;
     // exchangedPrice
-    this.exchangedPrice = {
-      defaultPrice: this.originPrice?.defaultPrice
-        ? Math.ceil(this.originPrice.defaultPrice * rate)
-        : undefined,
-      discountPrice: this.originPrice?.discountPrice
-        ? Math.ceil(this.originPrice.discountPrice * rate)
-        : undefined,
-      couponPrice: this.originPrice?.couponPrice
-        ? Math.ceil(this.originPrice.couponPrice * rate)
-        : undefined,
-    };
+    this.exchangedPrice = this.originPrice
+      ? Math.ceil(this.originPrice * rate)
+      : undefined;
+
     // exchangedLocalShippingCost
     this.exchangedLocalShippingCost = this.localShippingCost
       ? Math.ceil(this.localShippingCost * rate)
