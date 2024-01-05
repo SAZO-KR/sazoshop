@@ -199,6 +199,7 @@ export default class ProductInfoBuilder {
 
   build() {
     this.prd.id = this.prd.hash();
+    this.prd.pcode = this.prd.setPcode();
     return this.prd;
   }
 }

@@ -13,6 +13,8 @@ import ProductOption from './ProductOption';
 export default class ProductInfo {
   id?: string; // 상품 ID (상품의 원본을 대조할 때 사용)
 
+  pcode?: string; // 주문된 상품 정보 검색을 위한 제품 코드
+
   url?: string; // 상품 URL
 
   sitename?: string; // 사이트 이름
@@ -415,5 +417,21 @@ export default class ProductInfo {
   hash(): string {
     const SHA256 = require('crypto-js/sha256');
     return SHA256(JSON.stringify(this.toJSON())).toString();
+  }
+
+  setPcode(): string {
+    let siteCode;
+    if (this.sitename === 'coupang') siteCode = 'CO';
+    if (this.sitename === '11st') siteCode = 'EL';
+    if (this.sitename === 'gmarket') siteCode = 'GM';
+    if (this.sitename === 'navershopping') siteCode = 'NA';
+    if (this.sitename === 'oliveyoung') siteCode = 'OL';
+    if (this.sitename === 'zigzag') siteCode = 'ZI';
+    if (this.sitename === 'manual') siteCode = 'MA';
+    if (!siteCode) siteCode = 'AI';
+
+    const pid = this.id?.substring(0, 9).toUpperCase();
+
+    return `P${siteCode}${pid}`;
   }
 }
