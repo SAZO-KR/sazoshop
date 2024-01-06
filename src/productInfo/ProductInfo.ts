@@ -186,8 +186,8 @@ export default class ProductInfo {
     const idArray: string[] = [];
 
     this.extraOptions.forEach(option => {
-      const selectedAttribute = option.selectedAttributeId;
-      if (!selectedAttribute) throw new Error('selectedAttributeId not found');
+      let selectedAttribute = option.selectedAttributeId;
+      if (!selectedAttribute) selectedAttribute = '';
       idArray.push(selectedAttribute);
     });
 
