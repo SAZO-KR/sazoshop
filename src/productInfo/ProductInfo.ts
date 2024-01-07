@@ -3,12 +3,9 @@ import ProductAttribute from './ProductAttribute';
 import ProductOption from './ProductOption';
 
 /**
- * 상품 정보 클래스
- * @description
- * 상품 정보를 담는 클래스. ProductInfoBuilder를 통해 생성한다.
+ * @description ProductInfoBuilder를 통해 생성한다.
  * @example
  * const prdInfo = new ProductInfoBuilder().setTitle('상품명').build();
- *
  */
 export default class ProductInfo {
   id?: string; // 상품 ID (상품의 원본을 대조할 때 사용)
@@ -25,10 +22,18 @@ export default class ProductInfo {
 
   fetchedTime?: number; // 파싱에 걸린 시간
 
-  // * 상품 텍스트 정보
   originTitle?: string; // 번역 전 타이틀
 
   translatedTitle?: string; // 번역된 타이틀
+
+  details?: {
+    // 상품 상세 설명
+    [key: string]: string;
+  };
+
+  weight?: number; // 상품 무게
+
+  volume?: [number, number, number]; // 상품 부피 (가로, 세로, 높이)
 
   originLanguage?: string; // 번역 전 언어 ex) ko
 
@@ -52,6 +57,7 @@ export default class ProductInfo {
   }; // 환율 적용된 가격
 
   localShippingCost?: number; // 국내 배송비
+
   exchangedLocalShippingCost?: number; // 환율 적용된 국내 배송비
 
   expectedDeliveryTime?: String; // 예상 도착일

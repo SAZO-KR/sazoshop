@@ -44,6 +44,21 @@ export default class ProductInfoBuilder {
     return this;
   }
 
+  details(details: {[key: string]: string}) {
+    this.prd.details = details;
+    return this;
+  }
+
+  weight(weight: number) {
+    this.prd.weight = weight;
+    return this;
+  }
+
+  volume(volume: [number, number, number]) {
+    this.prd.volume = volume;
+    return this;
+  }
+
   originLanguage(originLanguage: string) {
     this.prd.originLanguage = originLanguage;
     return this;
