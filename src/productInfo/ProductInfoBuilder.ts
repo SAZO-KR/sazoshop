@@ -117,8 +117,8 @@ export default class ProductInfoBuilder {
     return this;
   }
 
-  expectedTariff(expectedTariff: number) {
-    this.prd.expectedTariff = expectedTariff;
+  tariffRate(tariffRate: number) {
+    this.prd.tariffRate = tariffRate;
     return this;
   }
 

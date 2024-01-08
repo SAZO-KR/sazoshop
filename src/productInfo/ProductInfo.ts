@@ -64,7 +64,7 @@ export default class ProductInfo {
 
   expectedDeliveryFee?: number; // 예상 배송비
 
-  expectedTariff?: number; // 예상 관세
+  tariffRate?: number; // 예상 관세율
 
   // * 상품 옵션 관련 정보
   requiredOptions: ProductOption[] = []; // 필수 옵션들
