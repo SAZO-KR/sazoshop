@@ -49,6 +49,11 @@ export default class ProductInfoBuilder {
     return this;
   }
 
+  description(description: string) {
+    this.prd.description = description;
+    return this;
+  }
+
   weight(weight: number) {
     this.prd.weight = weight;
     return this;
