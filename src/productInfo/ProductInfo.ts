@@ -31,6 +31,8 @@ export default class ProductInfo {
     [key: string]: string;
   };
 
+  description?: string; // 상품 상세 설명
+
   weight?: number; // 상품 무게
 
   volume?: [number, number, number]; // 상품 부피 (가로, 세로, 높이)
