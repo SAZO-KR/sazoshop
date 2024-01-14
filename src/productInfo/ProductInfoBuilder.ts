@@ -122,11 +122,6 @@ export default class ProductInfoBuilder {
     return this;
   }
 
-  tariffRate(tariffRate: number) {
-    this.prd.tariffRate = tariffRate;
-    return this;
-  }
-
   requiredOptions(OptionBuilders: ProductOptionBuilder[]) {
     this.prd.requiredOptions = OptionBuilders.map(builder => builder.build());
     return this;

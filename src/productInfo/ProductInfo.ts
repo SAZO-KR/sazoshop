@@ -33,10 +33,6 @@ export default class ProductInfo {
 
   description?: string; // 상품 상세 설명
 
-  weight?: number; // 상품 무게
-
-  volume?: [number, number, number]; // 상품 부피 (가로, 세로, 높이)
-
   originLanguage?: string; // 번역 전 언어 ex) ko
 
   translatedLanguage?: string; // 번역된 언어 ex) ja
@@ -66,7 +62,17 @@ export default class ProductInfo {
 
   expectedDeliveryFee?: number; // 예상 배송비
 
-  tariffRate?: number; // 예상 관세율
+  weight?: number; // 상품 무게
+
+  volume?: [number, number, number]; // 상품 부피 (가로, 세로, 높이)
+
+  tariffInfo?: {
+    hscode: string; // HS코드 4자리
+    hscodeDetail?: string; // HS코드 10자리
+    hscodeDescription: string; // HS코드 설명
+    probability: number; // estimate probability
+    reason: string;
+  };
 
   // * 상품 옵션 관련 정보
   requiredOptions: ProductOption[] = []; // 필수 옵션들
