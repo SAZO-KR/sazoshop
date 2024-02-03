@@ -29,6 +29,11 @@ export default class ProductInfoBuilder {
     return this;
   }
 
+  detailUrls(detailUrl: string[]) {
+    this.prd.detailUrls = detailUrl;
+    return this;
+  }
+
   fetchedTime(fetchedTime: number) {
     this.prd.fetchedTime = fetchedTime;
     return this;

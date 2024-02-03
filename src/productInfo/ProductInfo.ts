@@ -20,6 +20,8 @@ export default class ProductInfo {
 
   thumbnailUrls?: string[];
 
+  detailUrls?: string[];
+
   fetchedTime?: number; // 파싱에 걸린 시간
 
   originTitle?: string; // 번역 전 타이틀
